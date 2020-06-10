@@ -38,13 +38,28 @@
         document.addEventListener('DOMContentLoaded', function() {
           var calendarEl = document.getElementById('calendar');
   
-          var calendar = new FullCalendar.Calendar(calendarEl, {
-            plugins: [ 'dayGrid' ]
+          var calendar = calendar = new FullCalendar.Calendar(calendarEl, {
+            plugins: [ 'dayGrid' ],
+            dateClick: function() {
+                alert("a day has been clicked");
+            },
+            eventClick: function(){
+                alert("a event has been clicked");
+            }
           });
   
           calendar.render();
-        });
+
+          calendar.on('dateClick', function(info){
+            console.log('clicked on',info.dateStr)
+        })
   
+        calendar.on('eventClick', function(info){
+            console.log("clicked on event", info.dateStr)
+        })
+        });
+
+        
       </script>
 
 </head>
