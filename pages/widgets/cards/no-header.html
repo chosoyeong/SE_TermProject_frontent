@@ -26,6 +26,27 @@
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="../../../css/themes/all-themes.css" rel="stylesheet" />
+
+    <link href='../../../node_modules/@fullcalendar/core/main.css' rel='stylesheet' />
+    <link href='../../../node_modules/@fullcalendar/daygrid/main.css' rel='stylesheet' />
+
+    <script src='../../../node_modules/@fullcalendar/core/main.js'></script>
+    <script src='../../../node_modules/@fullcalendar/daygrid/main.js'></script>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+          var calendarEl = document.getElementById('calendar');
+  
+          var calendar = new FullCalendar.Calendar(calendarEl, {
+            plugins: [ 'dayGrid' ]
+          });
+  
+          calendar.render();
+        });
+  
+      </script>
+
 </head>
 
 <body class="theme-red">
@@ -500,7 +521,8 @@
     </section>
     <section class="content">
         <div class="container-fluid">
-            
+            <div>Hey</div>
+            <div id='calendar'></div>
         </div>
     </section>
 
