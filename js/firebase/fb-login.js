@@ -81,7 +81,6 @@ function sendPasswordReset() {
 function initApp() {
 	// Listening for auth state changes.
 	firebase.auth().onAuthStateChanged(function (user) {
-
 		if (user) {
 			// User is signed in.
 			var displayName = user.displayName;
@@ -93,7 +92,8 @@ function initApp() {
 			var providerData = user.providerData;
 
 			// Alert message when logged in
-			alert("email: " + email + "uid: " + uid);
+			//alert("email: " + email + "uid: " + uid);
+			window.location = "../../index.html"
 		} else {
 			// User is signed out.
 
