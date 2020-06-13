@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head>
@@ -75,7 +75,7 @@
                 <a href="javascript:void(0);" class="bars"></a>
                 <a class="navbar-brand" href="index.html">ADMINBSB - MATERIAL DESIGN</a>
             </div>
-       
+
         </div>
     </nav>
     <!-- #Top Bar -->
@@ -89,8 +89,8 @@
                     <img src="images/user.png" width="48" height="48" alt="User" />
                 </div>
                 <div class="info-container">
-                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe</div>
-                    <div class="email">john.doe@example.com</div>
+                    <div class="name" id="user-name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe</div>
+                    <div class="email" id="user-email">john.doe@example.com</div>
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
@@ -100,7 +100,7 @@
                             <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
                             <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">input</i>Sign Out</a></li>
+                            <li><a href="javascript:handleSignOut()"><i class="material-icons">input</i>Sign Out</a></li>
                         </ul>
                     </div>
                 </div>
@@ -147,8 +147,6 @@
 
                 </ul>
             </div>
-
-
 
 
             <!-- #Menu -->
@@ -340,7 +338,7 @@
             </div>
 
 
-            <!--For customer search bar-->        
+            <!--For customer search bar-->
 
             <div class="box">
                 <div class="container-4">
@@ -348,11 +346,11 @@
                         <fieldset>
                             <table>
                                 <tr>
-                                    <td><input type="search" id="search" placeholder="이름" ></td>
-                                    <td rowspan="2"><input type="button" id="button" value="search" ></td>
+                                    <td><input type="search" id="search" placeholder="이름"></td>
+                                    <td rowspan="2"><input type="button" id="button" value="search"></td>
                                 </tr>
                                 <tr>
-                                    <td><input type="search" id="search" placeholder="생년월일" ></td>
+                                    <td><input type="search" id="search" placeholder="생년월일"></td>
                                 </tr>
                                 <tr>
                                     <td></td>
@@ -360,10 +358,10 @@
                         </fieldset>
                     </form>
                 </div>
-            </div>        
-            
+            </div>
 
-           
+
+
 
 
 
@@ -371,43 +369,43 @@
 
             <div class="row clearfix">
                 <!-- Task Info -->
-              
-                    <div class="card">
-                        <div class="header">
-                            <h2>Today's reservation</h2>
 
-                            
-                            <div class="container">
-                                <div class="my-calendar clearfix">
-                                  <div class="clicked-date">
+                <div class="card">
+                    <div class="header">
+                        <h2>Today's reservation</h2>
+
+
+                        <div class="container">
+                            <div class="my-calendar clearfix">
+                                <div class="clicked-date">
                                     <div class="cal-day"></div>
                                     <div class="cal-date"></div>
-                                  </div>
-                                  <div class="calendar-box">
+                                </div>
+                                <div class="calendar-box">
                                     <div class="ctr-box clearfix">
-                                      <button type="button" title="prev" class="btn-cal prev">
-                                      </button>
-                                      <span class="cal-month"></span>
-                                      <span class="cal-year"></span>
-                                      <button type="button" title="next" class="btn-cal next">
-                                      </button>
+                                        <button type="button" title="prev" class="btn-cal prev">
+                                        </button>
+                                        <span class="cal-month"></span>
+                                        <span class="cal-year"></span>
+                                        <button type="button" title="next" class="btn-cal next">
+                                        </button>
                                     </div>
                                     <table class="cal-table">
-                                      <thead>
-                                        <tr>
-                                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S</th>
-                                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;M</th>
-                                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T</th>
-                                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;W</th>
-                                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T</th>
-                                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;F</th>
-                                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S</th>
-                                        </tr>
-                                      </thead>
-                                      <tbody class="cal-body"></tbody>
+                                        <thead>
+                                            <tr>
+                                                <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S</th>
+                                                <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;M</th>
+                                                <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T</th>
+                                                <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;W</th>
+                                                <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T</th>
+                                                <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;F</th>
+                                                <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="cal-body"></tbody>
                                     </table>
-                                  </div>
                                 </div>
+
                                 <!-- // .my-calendar -->
                               </div>        
 
@@ -429,19 +427,15 @@
                                        
                                     </tbody>
                                 </table>
-                            </div>
+
+                            </table>
                         </div>
                     </div>
-                
+                </div>
+
                 <!-- #END# Task Info -->
 
             </div>
-
-
-
-
-
-            
 
         </div>
     </section>
@@ -505,7 +499,6 @@
     <!-- Demo Js -->
     <script src="js/demo.js"></script>
 
-     
 </body>
 
 
