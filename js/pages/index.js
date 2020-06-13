@@ -243,7 +243,10 @@ const init = {
       e.target.classList.add('day-active');
       init.activeDTag = e.target;
       init.activeDate.setDate(day);
-      reloadTodo();
+      var mm=init.activeDate.getMonth()+1;
+      var yy=init.activeDate.getFullYear();
+      var yymmdd = `${yy}-${mm<10?"0"+mm:mm}-${day<10?"0"+day:day}`
+      reloadTodo(yymmdd);
     }
   });
 //Calendar
