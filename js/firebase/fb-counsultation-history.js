@@ -1,16 +1,25 @@
 
 
-const customerName = document.getElementById('name');
-const customerBirth = document.getElementById('birth');
-const consultationDate = document.getElementById('now_date');
+//const customerName = document.getElementById('name');
+//const customerBirth = document.getElementById('birth');
+//const consultationDate = document.getElementById('now_date');
+//const type_T = document.getElementById('treatment');
+//const type_B = document.getElementById('beauty');
+//const counselor = document.getElementById('counselor');
+//const title = document.getElementById('counsultation-title');
+//const content = document.getElementById('consultation-content');
+
+const customerName = document.getElementById('txt1');
+const customerBirth = document.getElementById('now_date');
+const consultationDate = document.getElementById('birth');
 const type_T = document.getElementById('treatment');
 const type_B = document.getElementById('beauty');
-const counselor = document.getElementById('counselor');
-const title = document.getElementById('counsultation-title');
-const content = document.getElementById('consultation-content');
+const counselor = document.getElementById('txt6');
+const title = document.getElementById('txt7');
+const content = document.getElementById('txt8');
 
 
-function addConsultation(event){
+function addConsultation(){
     var postData={
         customerName: customerName.value,
         customerBirth: customerBirth.value,
@@ -36,6 +45,8 @@ function addConsultation(event){
 }
 window.onload = function () {
 
-    document.getElementById('add-consultation-btn').addEventListener('click', addConsultation,false);
+    //document.getElementById('add-consultation-btn').addEventListener('click', addConsultation,false);
+    document.getElementById('edit-consultation-btn').addEventListener('click', addConsultation,false);
 }
+
 var db = firebase.firestore();

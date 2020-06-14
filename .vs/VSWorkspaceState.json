@@ -4,11 +4,12 @@
     "\\js",
     "\\js\\firebase",
     "\\js\\pages",
+    "\\js\\pages\\cards",
     "\\pages",
     "\\pages\\examples",
     "\\pages\\widgets",
     "\\pages\\widgets\\cards"
   ],
-  "SelectedNode": "\\js\\firebase\\fb-calender-reservation.js",
+  "SelectedNode": "\\js\\firebase\\fb-counsultation-history.js",
   "PreviewInSolutionExplorer": false
 }
