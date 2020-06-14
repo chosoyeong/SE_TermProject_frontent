@@ -2,10 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\js",
-    "\\js\\firebase",
     "\\pages",
     "\\pages\\examples"
   ],
-  "SelectedNode": "\\js\\firebase\\fb-main-user.js",
+  "SelectedNode": "\\pages\\examples\\sign-in.html",
   "PreviewInSolutionExplorer": false
 }
