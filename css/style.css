@@ -8096,6 +8096,11 @@ fieldset[disabled] .form-control {
     font-size: 16px;
     padding: 25px 60px 23px 56px;
     border: none; }
+    .box2{
+      width: 120px auto;
+      height: 40px;
+    }
+
     .box{
       margin: 80px auto;
       width: 250px;
@@ -8304,7 +8309,7 @@ fieldset[disabled] .form-control {
     height: 4px;
     background: #FFC107;
   }
-  /*Calendar*/
+  /*Calendar*/  
 
 /* Jquery DataTable ============================ */
 .dataTables_wrapper {

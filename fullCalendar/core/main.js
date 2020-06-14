@@ -4481,10 +4481,12 @@ Docs & License: https://fullcalendar.io/
             center: '',
             right: 'today prev,next'
         },
+        
+
         weekends: true,
         weekNumbers: false,
         weekNumberCalculation: 'local',
-        editable: false,
+        editable: true,
         // nowIndicator: false,
         scrollTime: '06:00:00',
         minTime: '00:00:00',
@@ -4509,14 +4511,14 @@ Docs & License: https://fullcalendar.io/
         dragRevertDuration: 500,
         dragScroll: true,
         allDayMaintainDuration: false,
-        // selectable: false,
-        unselectAuto: true,
+        selectable: true,
+        unselectAuto: false,
         // selectMinDistance: 0,
         dropAccept: '*',
         eventOrder: 'start,-duration,allDay,title',
         // ^ if start tie, longer events go before shorter. final tie-breaker is title text
         // rerenderDelay: null,
-        eventLimit: false,
+        eventLimit: true,
         eventLimitClick: 'popover',
         dayPopoverFormat: { month: 'long', day: 'numeric', year: 'numeric' },
         handleWindowResize: true,
