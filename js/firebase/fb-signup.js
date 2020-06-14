@@ -3,7 +3,8 @@
  */
 function handleSignUp() {
 	var email = document.getElementById('email').value;
-	var password = document.getElementById('password').value;
+    var password = document.getElementById('password').value;
+    var confirm = document.getElementById('confirm').value;
 	// Additional input information
 	var name = document.getElementById('name').value;
 
@@ -14,7 +15,13 @@ function handleSignUp() {
 	if (password.length < 4) {
 		alert('Please enter a password.');
 		return;
-	}
+    }
+
+    if (password != confirm) {
+        alert('Wrong password & Confirm password');
+        return;
+    }
+
 	
 	if(firebase.auth().currentUser){
 		// LOGOUT
@@ -38,13 +45,14 @@ function handleSignUp() {
 			displayName: name
 		}).then(function() {
 			// Update successful
-			console.log("User update Success.");
+            console.log("User update Success.");
+            firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
 			window.location = "../../index.html";
 		}).catch(function(error) {
 			// Error happened
 			alert(error);
 		});
-	});
+    });
 }
 
 /**

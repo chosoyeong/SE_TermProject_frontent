@@ -19,7 +19,11 @@ function toggleSignIn() {
 		}
 
 		// Sign in with email and pass.
-		firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
+        firebase.auth().signInWithEmailAndPassword(email, password).then(function () {
+            firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
+            window.location = "../../index.html";
+
+        }).catch(function (error) {
 			var errorCode = error.code;
 			var errorMessage = error.message;
 
@@ -93,7 +97,7 @@ function initApp() {
 
 			// Alert message when logged in
 			//alert("email: " + email + "uid: " + uid);
-			window.location = "../../index.html"
+			//window.location = "../../index.html"
 		} else {
 			// User is signed out.
 
