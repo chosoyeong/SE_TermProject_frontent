@@ -36,20 +36,18 @@ function addBooking(number,name,status,doc,time) {
  
 function reloadTodo(date){
     $('#reservation-status').html('');
-    var booking = reservation.orderByChild("date").equalTo(date);
-    console.log(booking);
     var index=0;
-    booking.on('value',function(snapshot){
-        snapshot.forEach(childSnapshot=>{
-            childData = childSnapshot.val();
-            addBooking(++index,childData["patientName"],childData["state"],childData["docName"],childData["time"]);
-            console.log(childSnapshot.val());
+
+    // query from firestore
+    db.collection("Reservation").where("date", "==", date).orderBy("time").get().then(function (querySnapshot) {
+        querySnapshot.forEach(function (doc) {
+            fieldData = doc.data();
+            console.log(fieldData);
+            addBooking(++index, fieldData["patientName"], fieldData["state"], fieldData["docName"], fieldData["time"]);
         });
-      
+    }).catch(function (error) {
+        console.log("Error getting documents: ", error);
     });
-    
 }
 
-var database = firebase.database();
-var reservation = database.ref('Reservation');
-
+var db = firebase.firestore();
