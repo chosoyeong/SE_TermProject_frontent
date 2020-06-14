@@ -181,8 +181,15 @@
                                         </table>
                                     </fieldset>
                                 </form>
-                            </div>
-                        </div>         
+            
+                                <form>
+                                    <input type="button" id="button2" value="ADD HISTORY"></button>
+                                </form>
+
+
+                            </div>                           
+                        </div>     
+                      
                         
                         
             </div>
@@ -209,9 +216,8 @@
                                         <i class="material-icons">more_vert</i>
                                     </a>
                                     <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">EDIT</a></li>
-                                        <li><a href="javascript:void(0);">ADD HISTORY</a></li>
-                                        <li><a href="javascript:void(0);">DELETE</a></li>
+                                        <li><a id="edit" onclick="edit()">EDIT</a></li>
+                                        <li><a id="delete">DELETE</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -220,7 +226,8 @@
                             <form id="form_validation" method="POST">
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="name", id="name" required>
+                                        <!-- <input type="text" class="form-control" name="name", id="name" required> -->
+                                        <input type="text" class="form-control" id="txt1" readonly />        
                                         <label class="form-label">Customer Name</label>
                                     </div>
                                 </div>
@@ -228,57 +235,91 @@
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <label class="form-label">Birth</label> 
-                                        <input type="date" class="form-control" name="birth" required, id="birth">
+                                        <input type="date" class="form-control" name="birth" required, id="birth" readonly>
                                         
                                         <script>
                                             document.getElementById('birth').valueAsDate = new Date();
                                         </script>
                                     </div>
-                                </div>
-                                
+                                </div>                                
                                 
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="date" class="form-control" name="date" required, id="now_date">
+                                        <input type="date" class="form-control" name="date" required, id="now_date" readonly>
                                         <label class="form-label">Consultation Date</label> 
                                         <script>
                                         document.getElementById('now_date').valueAsDate = new Date();
                                         </script>
                                     </div>
-                                </div>
+                                </div>                               
                                 
                                 <div class="form-group form-float">
                                     <div class="form-line">Consultation Type&nbsp;&nbsp;&nbsp;&nbsp;                                   
-                                        <input type="checkbox" id="treatment" class="filled-in">
+                                        <input type="checkbox" class="filled-in" id="treatment" checked onclick="return false;" />        
                                         <label for="treatment">Treatment&nbsp;&nbsp;&nbsp;</label>
-                                        <input type="checkbox" id="beauty" class="filled-in">
+
+                                        <input type="checkbox" id="beauty" class="filled-in" aria-checked onclick="return false;"  />       
                                         <label for="beauty">Beauty</label>                                       
                                     </div>
                                 </div>
         
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" id="counselor" required>
+                                        <!-- <input type="text" class="form-control" id="counselor" required> -->
+                                        <input type="text" class="form-control" id="txt6" readonly />        
+
                                         <label class="form-label">Counselor</label>
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" id="counsultation-title" required>
+                                        <!-- <input type="text" class="form-control" id="counsultation-title" required> -->
+                                        <input type="text" class="form-control" id="txt7" readonly />        
+
                                         <label class="form-label">Consultation Title</label>
                                     </div>
                                 </div>
                                
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <textarea name="description" cols="30" rows="5" class="form-control no-resize" id = "consultation-content" required></textarea>
+                                        <!-- <textarea name="description" cols="30" rows="5" class="form-control no-resize" id = "consultation-content" required></textarea> -->
+                                        <textarea class="form-control no-resize"cols="30" rows="5" id="txt8" readonly ></textarea>  
+
                                         <label class="form-label">Consultation Content</label>
                                     </div>
                                 </div>
                                
-                                <button class="btn btn-primary waves-effect" id="add-consultation-btn" >SUBMIT</button>
+                                <button class="btn btn-primary waves-effect" id="edit-consultation-btn" >SUBMIT</button>
                                
                             </form>
+
+                            <script>
+                                function edit() {
+                                    if( document.getElementById("edit-consultation-btn").innerText  == "SUBMIT"){
+                                        document.getElementById("edit-consultation-btn").innerText  = "EDIT COMPLETE";
+                                        document.getElementById("edit").background= "blue";
+                                        var oEle1 = document.getElementById('txt1') ;
+                                        oEle1.readOnly = false ;
+                                        var oEle2 = document.getElementById('now_date') ;
+                                        oEle2.readOnly = false ;
+                                        var oEle3 = document.getElementById('birth') ;
+                                        oEle3.readOnly = false ;
+                                        var oEle4 = document.getElementById('treatment') ;
+                                        oEle4.onclick=true;
+                                        var oEle5 = document.getElementById('beauty') ;
+                                        oEle5.onclick=true;
+                                        var oEle6 = document.getElementById('txt6') ;
+                                        oEle6.readOnly = false ;
+                                        var oEle7 = document.getElementById('txt7') ;
+                                        oEle7.readOnly = false ;
+                                        var oEle8 = document.getElementById('txt8') ;
+                                        oEle8.readOnly = false ;                                 
+                                    }                
+                                }
+                            </script> 
+
+
+
                         </div>
                     </div>
                 </div>
