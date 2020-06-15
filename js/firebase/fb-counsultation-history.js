@@ -1,14 +1,4 @@
 
-
-//const customerName = document.getElementById('name');
-//const customerBirth = document.getElementById('birth');
-//const consultationDate = document.getElementById('now_date');
-//const type_T = document.getElementById('treatment');
-//const type_B = document.getElementById('beauty');
-//const counselor = document.getElementById('counselor');
-//const title = document.getElementById('counsultation-title');
-//const content = document.getElementById('consultation-content');
-
 const customerName = document.getElementById('txt1');
 const customerBirth = document.getElementById('now_date');
 const consultationDate = document.getElementById('birth');
@@ -45,7 +35,6 @@ function addConsultation(){
 }
 window.onload = function () {
 
-    //document.getElementById('add-consultation-btn').addEventListener('click', addConsultation,false);
     document.getElementById('edit-consultation-btn').addEventListener('click', addConsultation,false);
 }
 

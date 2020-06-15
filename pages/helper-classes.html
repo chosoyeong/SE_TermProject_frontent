@@ -185,7 +185,7 @@
                                         <label for="NameSurname" class="col-sm-2 control-label">Name</label>
                                         <div class="col-sm-9">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" id="NameSurname" name="NameSurname" placeholder="name" value="" required>
+                                                <input type="text" class="form-control" id="name" name="name" placeholder="name" value="" required>
                                             </div>
                                         </div>
                                     </div>
@@ -193,7 +193,7 @@
                                         <label for="Email" class="col-sm-2 control-label">Birth of data</label>
                                         <div class="col-sm-9">
                                             <div class="form-line">
-                                                <input type="date" class="form-control" id="Email" name="Email" placeholder="Email"  required>
+                                                <input type="date" class="form-control" id="birth" name="birth" placeholder="Email"  required>
                                             </div>
                                         </div>
                                     </div>
@@ -201,7 +201,7 @@
                                         <label for="InputExperience" class="col-sm-2 control-label">contact number</label>
                                         <div class="col-sm-9">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" id="Email" name="Email" placeholder="contact number" value="" required>
+                                                <input type="text" class="form-control" id="contact-number" name="contact-number" placeholder="contact number" value="" required>
                                             </div>
                                         </div>
                                     </div>
@@ -209,7 +209,7 @@
                                     <div class="form-group">
                                                 
                                         <div class="col-sm-offset-2 col-sm-10">
-                                            <button type="submit" class="btn-group">Add Customer</button>
+                                            <button  id="add-customer-btn" class="btn-group">Add Customer</button>
                                         </div>
                                     </div>  
   
@@ -451,6 +451,15 @@
 
     <!-- Demo Js -->
     <script src="../js/demo.js"></script>
+
+    <!--Firebase Js-->
+    <script src='https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js'></script>
+    <script src='https://www.gstatic.com/firebasejs/7.15.0/firebase-analytics.js'></script>
+    <script src='https://www.gstatic.com/firebasejs/7.15.0/firebase-auth.js'></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-firestore.js"></script>
+    <script src="../js/firebase/fb-init.js"></script>
+    <script src="../js/firebase/fb-main-user.js"></script>
+    <script src="../js/firebase/fb-customer-information.js"></script>
 </body>
 
 </html>
