@@ -180,7 +180,7 @@
                                     </fieldset>
                                 </form>            
                                 <form>
-                                    <input type="button" id="button2" value="ADD HISTORY"></button>
+                                    <input type="button" id="button2" value="ADD HISTORY" onclick="add()"></button>
                                 </form>
                             </div>                           
                         </div>   
@@ -213,7 +213,7 @@
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <!-- <input type="text" class="form-control" name="name", id="name" required> -->
-                                        <input type="text" class="form-control" id="txt1" readonly />        
+                                        <input type="text" class="form-control" id="name" readonly />        
                                         <label class="form-label">Customer Name</label>
                                     </div>
                                 </div>
@@ -252,7 +252,7 @@
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <!-- <input type="text" class="form-control" id="counselor" required> -->
-                                        <input type="text" class="form-control" id="txt6" readonly />        
+                                        <input type="text" class="form-control" id="counselor" readonly />        
 
                                         <label class="form-label">Counselor</label>
                                     </div>
@@ -260,7 +260,7 @@
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <!-- <input type="text" class="form-control" id="counsultation-title" required> -->
-                                        <input type="text" class="form-control" id="txt7" readonly />        
+                                        <input type="text" class="form-control" id="counsultation-title" readonly />        
 
                                         <label class="form-label">Consultation Title</label>
                                     </div>
@@ -269,13 +269,13 @@
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <!-- <textarea name="description" cols="30" rows="5" class="form-control no-resize" id = "consultation-content" required></textarea> -->
-                                        <textarea class="form-control no-resize"cols="30" rows="5" id="txt8" readonly ></textarea>  
+                                        <textarea class="form-control no-resize"cols="30" rows="5" id="consultation-content" readonly ></textarea>  
 
                                         <label class="form-label">Consultation Content</label>
                                     </div>
                                 </div>
                                
-                                <button type="button" class="btn btn-primary waves-effect" id="edit-consultation-btn" >SUBMIT</button>
+                                <button type="submit" class="btn btn-primary waves-effect" id="edit-consultation-btn">SUBMIT</button>
                                
                             </form>
 
@@ -284,7 +284,7 @@
                                     if( document.getElementById("edit-consultation-btn").innerText  == "SUBMIT"){
                                         document.getElementById("edit-consultation-btn").innerText  = "EDIT COMPLETE";
                                         document.getElementById("edit").background= "blue";
-                                        var oEle1 = document.getElementById('txt1') ;
+                                        var oEle1 = document.getElementById('name') ;
                                         oEle1.readOnly = false ;
                                         var oEle2 = document.getElementById('now_date') ;
                                         oEle2.readOnly = false ;
@@ -294,14 +294,38 @@
                                         oEle4.onclick=true;
                                         var oEle5 = document.getElementById('beauty') ;
                                         oEle5.onclick=true;
-                                        var oEle6 = document.getElementById('txt6') ;
+                                        var oEle6 = document.getElementById('counselor') ;
                                         oEle6.readOnly = false ;
-                                        var oEle7 = document.getElementById('txt7') ;
+                                        var oEle7 = document.getElementById('counsultation-title') ;
                                         oEle7.readOnly = false ;
-                                        var oEle8 = document.getElementById('txt8') ;
+                                        var oEle8 = document.getElementById('consultation-content') ;
                                         oEle8.readOnly = false ;                                 
                                     }                
                                 }
+                            </script> 
+
+                            <script>
+                                function add() {                         
+                                        document.getElementById("edit-consultation-btn").innerText  = "SUBMIT";
+                                        document.getElementById("edit").background= "red";
+                                        var oEle1 = document.getElementById('name') ;
+                                        oEle1.readOnly = false ;
+                                        var oEle2 = document.getElementById('now_date') ;
+                                        oEle2.readOnly = false ;
+                                        var oEle3 = document.getElementById('birth') ;
+                                        oEle3.readOnly = false ;
+                                        var oEle4 = document.getElementById('treatment') ;
+                                        oEle4.onclick=true;
+                                        var oEle5 = document.getElementById('beauty') ;
+                                        oEle5.onclick=true;
+                                        var oEle6 = document.getElementById('counselor') ;
+                                        oEle6.readOnly = false ;
+                                        var oEle7 = document.getElementById('counsultation-title') ;
+                                        oEle7.readOnly = false ;
+                                        var oEle8 = document.getElementById('consultation-content') ;
+                                        oEle8.readOnly = false ;                                 
+                                    }                
+                                
                             </script> 
                         </div>
                     </div>
