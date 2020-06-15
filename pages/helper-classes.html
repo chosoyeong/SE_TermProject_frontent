@@ -209,7 +209,7 @@
                                     <div class="form-group">
                                                 
                                         <div class="col-sm-offset-2 col-sm-10">
-                                            <button  id="add-customer-btn" class="btn-group">Add Customer</button>
+                                            <button  type="submit" id="add-customer-btn" class="btn-group">Add Customer</button>
                                         </div>
                                     </div>  
   
@@ -232,11 +232,11 @@
                         <fieldset>
                             <table>
                                 <tr>
-                                    <td><input type="search" id="search" placeholder="이름" ></td>
-                                    <td rowspan="2"><input type="button" id="button" value="search" ></td>
+                                    <td><input type="search" id="search-name"  placeholder="이름" ></td>
+                                    <td rowspan="2"><input type="button" id="search-btn" value="search" ></td>
                                 </tr>
                                 <tr>
-                                    <td><input type="search" id="search" placeholder="생년월일" ></td>
+                                    <td><input type="date" id="search-birth" placeholder="생년월일" ></td>
                                 </tr>
                                 <tr>
                                     <td></td>
@@ -360,7 +360,7 @@
                                                 
                                                 <div class="col-sm-offset-2 col-sm-10">
                                                     <button type="button" class="btn btn-danger" id="edit" onclick="test()">EDIT</button>
-                                                    <button type="reset" class="btn btn-danger">DELETE</button>
+                                                    <button type="button" class="btn btn-danger" id="delete-customer-btn">DELETE</button>
                                                 </div>
                                             </div>                                                    
                                         </form>                 
