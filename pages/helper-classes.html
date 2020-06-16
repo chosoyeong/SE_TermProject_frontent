@@ -171,9 +171,9 @@
             <div class="row clearfix">
                
 
-            <!--For customer add form -->        
+        <!--For customer add form -->        
 
-        <div box2>
+        <div class="box2" id=addform style="display:none">
             <div class="card">   
 
                 <div class="body">                    
@@ -209,22 +209,39 @@
                                     <div class="form-group">
                                                 
                                         <div class="col-sm-offset-2 col-sm-10">
-                                            <button  type="submit" id="add-customer-btn" class="btn-group">Add Customer</button>
+                                            <button  type="submit" id="add-customer-btn" class="btn-group" onclick="hide_addform()">SUBMIT</button>
                                         </div>
                                     </div>  
   
                                 </form>         
                             </div>
-                        
+
                     </div>
                 </div>
             </div>
 
             <!--For customer add form End-->   
 
+            <!--For customer add button-->    
+            <div class="box">
+                <div class="button">
+                    <button id="customer_add_form", onclick="addform()">ADD CUSTOMER</button>
+                </div>
 
+                <script>
+                    function addform() {
+                        document.getElementById("addform").style="display:block"               
+                    }
+                </script> 
 
+                <script>
+                    function hide_addform() {
+                        document.getElementById("addform").style="display:none"               
+                    }
+                </script> 
+            </div>
             <!--For customer search bar-->        
+           
 
             <div class="box">
                 <div class="container-4">
@@ -233,7 +250,7 @@
                             <table>
                                 <tr>
                                     <td><input type="search" id="search-name"  placeholder="이름" ></td>
-                                    <td rowspan="2"><input type="button" id="search-btn" value="search" ></td>
+                                    <td rowspan="2"><input type="button" id="search-btn" value="search" onclick="search()" ></td>
                                 </tr>
                                 <tr>
                                     <td><input type="date" id="search-birth" placeholder="생년월일" ></td>
@@ -245,16 +262,79 @@
                     </form>
                 </div>
             </div>        
+
+            <script>
+                function search() {
+                    document.getElementById("informatio_form").style="display:none"      
+                    document.getElementById("search_result").style="display:block"      
+
+                }
+            </script> 
             <!--For customer search bar End-->
 
                 
-              
+            <!--For customer serach Result Start--> 
+            <div class="card" id="search_result">
+                <div class="body">
+                    <div class="table-responsive">
+                        <table class="table table-hover dashboard-task-infos">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>customer name</th>
+                                    <th>Birth</th>
+                                    
                 
-                    <div class="card">
+                                </tr>
+                            </thead>
+                            <tbody input type="button" onclick="select_customer()">
+                                <tr>
+                                    <td>1</td>
+                                    <td>Gildong</td>
+                                    <td>00.01.01</td>
+                             
+                
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>nana </td>
+                                    <td>01.12.25</td>
+                              
+                                
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>yumi C</td>
+                                    <td>99.05.05</td>
+                                   
+                                
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>soso</td>
+                                    <td>98.06.01</td>
+                                    
+                               
+                                </tr>
+                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                </div>                  
+
+                <script>
+                    function select_customer() {
+                        document.getElementById("informatio_form").style="display:block" 
+                        document.getElementById("search_result").style="display:none"     
+                    }
+                </script> 
+             <!--For customer serach Result End--> 
+                
+                    <div class="card" id="informatio_form" style="display:none">
                         
                         <div class="body">
 
-                            
                             <div>
                                 <ul class="nav nav-tabs" role="tablist">
                                     <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Profile</a></li>
