@@ -79,14 +79,22 @@ function deleteCustomer(){
 function editCustomer() {
     if( document.getElementById("edit-customer-btn").innerText  == "완료"){
         document.getElementById("edit-customer-btn").innerText  = "EDIT";
-        $('#txt1').readOnly = true ;
-        $('#txt2').readOnly = true ;
-        $('#txt3').readOnly = true ;
-        $('#txt4').readOnly = true ;
-        $('#txt5').readOnly = true ;
-        $('#txt6').readOnly = true ;
-        $('#txt7').readOnly = true ;
-        $('#txt8').readOnly = true ;
+        var oEle1 = document.getElementById('txt1') ;
+        oEle1.readOnly = true ;
+        var oEle2 = document.getElementById('txt2') ;
+        oEle2.readOnly = true ;
+        var oEle3 = document.getElementById('txt3') ;
+        oEle3.readOnly = true ;
+        var oEle4 = document.getElementById('txt4') ;
+        oEle4.readOnly = true ;
+        var oEle5 = document.getElementById('txt5') ;
+        oEle5.readOnly = true ;
+        var oEle6 = document.getElementById('txt6') ;
+        oEle6.readOnly = true ;
+        var oEle7 = document.getElementById('txt7') ;
+        oEle7.readOnly = true ;
+        var oEle8 = document.getElementById('txt8') ;
+        oEle8.readOnly = true ;
 
         var name = $("#txt1").val();
         var birth = $("#txt2").val();
@@ -118,14 +126,23 @@ function editCustomer() {
     else if( document.getElementById("edit-customer-btn").innerText  == "EDIT"){
         document.getElementById("edit-customer-btn").innerText  = "완료";
         document.getElementById("edit-customer-btn").background= "blue";
-        $('#txt1').readOnly = false ;
-        $('#txt2').readOnly = false ;
-        $('#txt3').readOnly = false ;
-        $('#txt4').readOnly = false ;
-        $('#txt5').readOnly = false ;
-        $('#txt6').readOnly = false ;
-        $('#txt7').readOnly = false ;
-        $('#txt8').readOnly = false ;
+
+        var oEle1 = document.getElementById('txt1') ;
+        oEle1.readOnly = false ;
+        var oEle2 = document.getElementById('txt2') ;
+        oEle2.readOnly = false ;
+        var oEle3 = document.getElementById('txt3') ;
+        oEle3.readOnly = false ;
+        var oEle4 = document.getElementById('txt4') ;
+        oEle4.readOnly = false ;
+        var oEle5 = document.getElementById('txt5') ;
+        oEle5.readOnly = false ;
+        var oEle6 = document.getElementById('txt6') ;
+        oEle6.readOnly = false ;
+        var oEle7 = document.getElementById('txt7') ;
+        oEle7.readOnly = false ;
+        var oEle8 = document.getElementById('txt8') ;
+        oEle8.readOnly = false ;
 
     }
 }
