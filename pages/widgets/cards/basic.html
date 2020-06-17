@@ -160,13 +160,100 @@
                         <div class="block-header">
                             <h2>Customer Consultation</h2>
                         </div>               
+                        <!-- Button trigger modal -->  
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                            Add Consulting
+                        </button>
 
-                        <div class="box">
-                            <div class="container-4">
-                                <form>
-                                    <input class="button_design" type="button" id="button2" value="ADD HISTORY" onclick="add_history()"></button>
-                                </form>                               
-                            </div>   
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">상담내역</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="form_validation" method="POST">
+                                
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <!-- <input type="text" class="form-control" name="name", id="name" required> -->
+                                                <input type="text" class="form-control" id="txt1_cus" readonly />        
+                                                <label class="form-label">Customer Name</label>
+                                            </div>
+                                        </div>
+        
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <label class="form-label">Birth</label> 
+                                                <input type="date" class="form-control" name="birth" required, id="birth_cus" readonly>
+                                                
+                                                <script>
+                                                    document.getElementById('birth_cus').valueAsDate = new Date();
+                                                </script>
+                                            </div>
+                                        </div>                                
+                                        
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="date" class="form-control" name="date" required, id="now_date_cus" readonly>
+                                                <label class="form-label">Consultation Date</label> 
+                                                <script>
+                                                document.getElementById('now_date_cus').valueAsDate = new Date();
+                                                </script>
+                                            </div>
+                                        </div>                               
+                                        
+                                        <div class="form-group form-float">
+                                            <div class="form-line">Consultation Type&nbsp;&nbsp;&nbsp;&nbsp;                                   
+                                                <input type="checkbox" class="filled-in" id="treatment_cus" checked onclick="return false;" />        
+                                                <label for="treatment_cus">Treatment&nbsp;&nbsp;&nbsp;</label>
+        
+                                                <input type="checkbox" id="beauty_cus" class="filled-in" aria-checked onclick="return false;"  />       
+                                                <label for="beauty_cus">Beauty</label>                                       
+                                            </div>
+                                        </div>
+                
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <!-- <input type="text" class="form-control" id="counselor" required> -->
+                                                <input type="text" class="form-control" id="txt6_cus" readonly />        
+        
+                                                <label class="form-label">Counselor</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <!-- <input type="text" class="form-control" id="counsultation-title" required> -->
+                                                <input type="text" class="form-control" id="txt7_cus" readonly />        
+        
+                                                <label class="form-label">Consultation Title</label>
+                                            </div>
+                                        </div>
+                                       
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <!-- <textarea name="description" cols="30" rows="5" class="form-control no-resize" id = "consultation-content" required></textarea> -->
+                                                <textarea class="form-control no-resize"cols="30" rows="5" id="txt8_cus" readonly ></textarea>  
+        
+                                                <label class="form-label">Consultation Content</label>
+                                            </div>
+                                        </div>
+                                        <!-- <button type="submit" class="btn btn-primary waves-effect" id="edit-consultation-btn" style="display: none;" >EDIT COMPLETED</button>                                
+                                        
+                                        <button type="button" class="button2" id="show_list_btn" style="background-color: coral;" onclick="back_to_list()">SHOW HISTORY LIST</button> -->
+                                        
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">ADD</button>
+                                </div>
+                            </div>
+                            </div>
                         </div>
                         
                         <!--For customer search bar-->    

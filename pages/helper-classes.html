@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
 
     <!-- Bootstrap Core Css -->
-    <link href="../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">\
 
     <!-- Waves Effect Css -->
     <link href="../plugins/node-waves/waves.css" rel="stylesheet" />
@@ -170,30 +170,59 @@
         <div class="container-fluid">
             <div class="row clearfix">
                
-
-    
-
-            <!--For customer add button-->    
-            <div class="box">
-                <div class="button">
-                    <button class="button_design" id="customer_add_form" onclick="addform()">ADD CUSTOMER</button>
+            <!-- Button trigger modal -->  
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                Add Customer
+            </button>
+            
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">고객정보</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="tab-content">
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="NameSurname" class="col-sm-2 control-label">Name</label>
+                                    <div class="col-sm-9">
+                                        <div class="form-line">
+                                            <input type="text" class="form-control" id="name" name="name" placeholder="name" value="" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Email" class="col-sm-2 control-label">Birth of data</label>
+                                    <div class="col-sm-9">
+                                        <div class="form-line">
+                                            <input type="date" class="form-control" id="birth" name="birth" placeholder="Email"  required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="InputExperience" class="col-sm-2 control-label">contact number</label>
+                                    <div class="col-sm-9">
+                                        <div class="form-line">
+                                            <input type="text" class="form-control" id="contact-number" name="contact-number" placeholder="contact number" value="" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>         
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">ADD</button>
+                    </div>
                 </div>
-
-                <script>
-                    function addform() {
-                        document.getElementById("addform").style="display:block"       
-                        document.getElementById("search_result").style="display:none"   
-                        document.getElementById("informatio_form").style="display:none"          
-                    }
-                </script> 
-
-                <script>
-                    function hide_addform() {
-                        document.getElementById("addform").style="display:none"    
-           
-                    }
-                </script> 
+                </div>
             </div>
+    
             <!--For customer search bar-->        
            
             
@@ -226,58 +255,8 @@
             </script> 
             <!--For customer search bar End-->
 
-                <!--For customer add form -->        
-
-        <div class="box2" id=addform style="display:none">
-            <div class="card">   
-
-                <div class="body">                    
-                    
-
-                        <div class="tab-content">
-                                <form class="form-horizontal">
-                                    <div class="form-group">
-                                        <label for="NameSurname" class="col-sm-2 control-label">Name</label>
-                                        <div class="col-sm-9">
-                                            <div class="form-line">
-                                                <input type="text" class="form-control" id="name" name="name" placeholder="name" value="" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="Email" class="col-sm-2 control-label">Birth of data</label>
-                                        <div class="col-sm-9">
-                                            <div class="form-line">
-                                                <input type="date" class="form-control" id="birth" name="birth" placeholder="Email"  required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="InputExperience" class="col-sm-2 control-label">contact number</label>
-                                        <div class="col-sm-9">
-                                            <div class="form-line">
-                                                <input type="text" class="form-control" id="contact-number" name="contact-number" placeholder="contact number" value="" required>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                                
-                                        <div class="col-sm-offset-2 col-sm-10">
-                                            <button  type="submit" id="add-customer-btn" class="btn-group" onclick="hide_addform()">SUBMIT</button>
-                                        </div>
-                                    </div>  
-  
-                                </form>         
-                            </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <!--For customer add form End-->   
-
-                
+           
+              
             <!--For customer serach Result Start--> 
             <div class="card" id="search_result" style="display: none;">
                 <div class="body">
