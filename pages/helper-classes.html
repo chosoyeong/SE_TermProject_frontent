@@ -171,7 +171,62 @@
             <div class="row clearfix">
                
 
-        <!--For customer add form -->        
+    
+
+            <!--For customer add button-->    
+            <div class="box">
+                <div class="button">
+                    <button class="button_design" id="customer_add_form" onclick="addform()">ADD CUSTOMER</button>
+                </div>
+
+                <script>
+                    function addform() {
+                        document.getElementById("addform").style="display:block"       
+                        document.getElementById("search_result").style="display:none"   
+                        document.getElementById("informatio_form").style="display:none"          
+                    }
+                </script> 
+
+                <script>
+                    function hide_addform() {
+                        document.getElementById("addform").style="display:none"    
+           
+                    }
+                </script> 
+            </div>
+            <!--For customer search bar-->        
+           
+            
+            <div class="box">
+                <div class="container-4">
+                    <form>    
+                        <fieldset>
+                            <table>
+                                <tr>
+                                    <td><input type="search" id="search-name" placeholder="이름" ></td>
+                                    <td  style="padding-left:15px"><input type="date" id="search-birth" placeholder="생년월일" ></td>
+                                    <td  style="padding-left:15px" rowspan="2"><input type="button" id="search-btn" value="search" onclick="search()"></td>
+                                </tr>
+                             
+                                <tr>
+                                    <td></td>
+                            </table>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>        
+
+            <script>
+                function search() {
+                    document.getElementById("informatio_form").style="display:none"      
+                    document.getElementById("search_result").style="display:block"   
+                    document.getElementById("addform").style="display:none"      
+  
+                }
+            </script> 
+            <!--For customer search bar End-->
+
+                <!--For customer add form -->        
 
         <div class="box2" id=addform style="display:none">
             <div class="card">   
@@ -222,59 +277,9 @@
 
             <!--For customer add form End-->   
 
-            <!--For customer add button-->    
-            <div class="box">
-                <div class="button">
-                    <button id="customer_add_form", onclick="addform()">ADD CUSTOMER</button>
-                </div>
-
-                <script>
-                    function addform() {
-                        document.getElementById("addform").style="display:block"               
-                    }
-                </script> 
-
-                <script>
-                    function hide_addform() {
-                        document.getElementById("addform").style="display:none"               
-                    }
-                </script> 
-            </div>
-            <!--For customer search bar-->        
-           
-
-            <div class="box">
-                <div class="container-4">
-                    <form>
-                        <fieldset>
-                            <table>
-                                <tr>
-                                    <td><input type="search" id="search-name"  placeholder="이름" ></td>
-                                    <td rowspan="2"><input type="button" id="search-btn" value="search" onclick="search()" ></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="date" id="search-birth" placeholder="생년월일" ></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                            </table>
-                        </fieldset>
-                    </form>
-                </div>
-            </div>        
-
-            <script>
-                function search() {
-                    document.getElementById("informatio_form").style="display:none"      
-                    document.getElementById("search_result").style="display:block"      
-
-                }
-            </script> 
-            <!--For customer search bar End-->
-
                 
             <!--For customer serach Result Start--> 
-            <div class="card" id="search_result">
+            <div class="card" id="search_result" style="display: none;">
                 <div class="body">
                     <div class="table-responsive">
                         <table class="table table-hover dashboard-task-infos">
@@ -283,7 +288,6 @@
                                     <th>#</th>
                                     <th>customer name</th>
                                     <th>Birth</th>
-                                    
                 
                                 </tr>
                             </thead>

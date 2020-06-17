@@ -8188,7 +8188,7 @@ fieldset[disabled] .form-control {
     }
 
 
-    .container-4 input#button2{
+    .button_design{
       margin-top: 50px;
       vertical-align: middle;
       white-space: nowrap;
@@ -8216,7 +8216,7 @@ fieldset[disabled] .form-control {
       transition: background .55s ease;
     }
     
-    .container-4 input#button2:active { 
+    .button_design:active { 
       position: relative; 
       top: 2px; 
       margin-bottom: 2px; 

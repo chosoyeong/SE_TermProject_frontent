@@ -159,61 +159,201 @@
                     <div class="container-fluid">
                         <div class="block-header">
                             <h2>Customer Consultation</h2>
-                        </div>            
-            
-                        <!--For customer search bar-->    
+                        </div>               
+
                         <div class="box">
                             <div class="container-4">
+                                <form>
+                                    <input class="button_design" type="button" id="button2" value="ADD HISTORY" onclick="add_history()"></button>
+                                </form>                               
+                            </div>   
+                        </div>
+                        
+                        <!--For customer search bar-->    
+                        <div class="box">
+                            <div class="container-4">                    
                                 <form>
                                     <fieldset>
                                         <table>
                                             <tr>
                                                 <td><input type="search" id="search" placeholder="이름" ></td>
-                                                <td rowspan="2"><input type="button" id="button" value="search" ></td>
+                                                <td  style="padding-left:15px"><input type="date" id="search" placeholder="생년월일" ></td>
+                                                <td  style="padding-left:15px" rowspan="2"><input type="button" id="button" value="search" onclick="const_search()"></td>
                                             </tr>
-                                            <tr>
-                                                <td><input type="search" id="search" placeholder="생년월일" ></td>
-                                            </tr>
+                                         
                                             <tr>
                                                 <td></td>
                                         </table>
                                     </fieldset>
-                                </form>            
-                                <form>
-                                    <input type="button" id="button2" value="ADD HISTORY" onclick="add()"></button>
-                                </form>
-                            </div>                           
-                        </div>   
+                                </form>   
+                            
+
+                            </div>  
+                                                
+                        </div> 
+                
+
+                        <script>
+                            function const_search() {
+                                document.getElementById("history_form").style="display:none"      
+                                document.getElementById("consult_search_result").style="display:block"      
+                                document.getElementById("history_list").style="display:none" 
+                                document.getElementById("new_history_form").style="display:none"      
+     
+
+                            }
+                        </script> 
+
+             <!--For customer serach Result Start--> 
+            <div class="card" id="consult_search_result" style="display: none;" >
+                <div class="body">
+                    <div class="table-responsive">
+                        <table class="table table-hover dashboard-task-infos">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>customer name</th>
+                                    <th>Birth</th>
+                                    
+                
+                                </tr>
+                            </thead>
+                            <tbody input type="button" onclick="select_customer()">
+                                <tr>
+                                    <td>1</td>
+                                    <td>Gildong</td>
+                                    <td>00.01.01</td>
+                             
+                
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>nana </td>
+                                    <td>01.12.25</td>
+                              
+                                
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>yumi C</td>
+                                    <td>99.05.05</td>
+                                   
+                                
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>soso</td>
+                                    <td>98.06.01</td>
+                                    
+                                </tr>
+                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                </div>                  
+
+                <script>
+                    function select_customer() {
+                        document.getElementById("history_list").style="display:block"                         
+                        document.getElementById("consult_search_result").style="display:none"    
+                        document.getElementById("new_history_form").style="display:none"      
+ 
+                    }
+                </script> 
+             <!--For customer serach Result End--> 
+
+
+
+        <!--For customer History Result Start--> 
+        <div class="card" id="history_list" style="display: none;" >
+            <div class="body">
+                <div class="table-responsive">
+                    <table class="table table-hover dashboard-task-infos">
+                        <thead>
+                            <tr>
+                                <th>history#</th>
+                                <th>title</th>
+                                <th>date</th>
+                                
+            
+                            </tr>
+                        </thead>
+                        <tbody input type="button" onclick="select_history()">
+                            <tr>
+                                <td>1</td>
+                                <td>레이저 시술</td>
+                                <td>20.06.01</td>
+                        
+            
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>압출주사 </td>
+                                <td>20.06.17</td>
+                        
+                            
+                            </tr>
+            
+            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </div>                  
+
+            <script>
+                function select_history() {
+                    document.getElementById("history_list").style="display:none" 
+                    document.getElementById("consult_search_result").style="display:none"
+                    document.getElementById("history_form").style="display:block" 
+                    document.getElementById("new_history_form").style="display:none"      
+
+    
+                }
+            </script> 
+        <!--For customer History Result End--> 
+
+
+
                     </div>
 
                 </section>  
+
+
+
+     
 
             <!-- Basic Validation -->
         <section class="content">
             <div class="container-fluid">
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
+                    <div class="card" id="history_form" style="display: none;">
                         <div class="header">
                             <h2>Consultation history</h2>
+
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
                                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                         <i class="material-icons">more_vert</i>
                                     </a>
                                     <ul class="dropdown-menu pull-right">
-                                        <li><a id="edit" onclick="edit()">EDIT</a></li>
+                                        <li><a id="edit" onclick="edit()" >EDIT</li>
                                         <li><a id="delete">DELETE</a></li>
                                     </ul>
                                 </li>
+
                             </ul>
+
                         </div>
                         <div class="body">
                             <form id="form_validation" method="POST">
+                                
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <!-- <input type="text" class="form-control" name="name", id="name" required> -->
-                                        <input type="text" class="form-control" id="txt1" readonly />        
+                                        <input type="text" class="form-control" id="txt1_cus" readonly />        
                                         <label class="form-label">Customer Name</label>
                                     </div>
                                 </div>
@@ -221,38 +361,38 @@
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <label class="form-label">Birth</label> 
-                                        <input type="date" class="form-control" name="birth" required, id="birth" readonly>
+                                        <input type="date" class="form-control" name="birth" required, id="birth_cus" readonly>
                                         
                                         <script>
-                                            document.getElementById('birth').valueAsDate = new Date();
+                                            document.getElementById('birth_cus').valueAsDate = new Date();
                                         </script>
                                     </div>
                                 </div>                                
                                 
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="date" class="form-control" name="date" required, id="now_date" readonly>
+                                        <input type="date" class="form-control" name="date" required, id="now_date_cus" readonly>
                                         <label class="form-label">Consultation Date</label> 
                                         <script>
-                                        document.getElementById('now_date').valueAsDate = new Date();
+                                        document.getElementById('now_date_cus').valueAsDate = new Date();
                                         </script>
                                     </div>
                                 </div>                               
                                 
                                 <div class="form-group form-float">
                                     <div class="form-line">Consultation Type&nbsp;&nbsp;&nbsp;&nbsp;                                   
-                                        <input type="checkbox" class="filled-in" id="treatment" checked onclick="return false;" />        
-                                        <label for="treatment">Treatment&nbsp;&nbsp;&nbsp;</label>
+                                        <input type="checkbox" class="filled-in" id="treatment_cus" checked onclick="return false;" />        
+                                        <label for="treatment_cus">Treatment&nbsp;&nbsp;&nbsp;</label>
 
-                                        <input type="checkbox" id="beauty" class="filled-in" aria-checked onclick="return false;"  />       
-                                        <label for="beauty">Beauty</label>                                       
+                                        <input type="checkbox" id="beauty_cus" class="filled-in" aria-checked onclick="return false;"  />       
+                                        <label for="beauty_cus">Beauty</label>                                       
                                     </div>
                                 </div>
         
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <!-- <input type="text" class="form-control" id="counselor" required> -->
-                                        <input type="text" class="form-control" id="txt6" readonly />        
+                                        <input type="text" class="form-control" id="txt6_cus" readonly />        
 
                                         <label class="form-label">Counselor</label>
                                     </div>
@@ -260,7 +400,7 @@
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <!-- <input type="text" class="form-control" id="counsultation-title" required> -->
-                                        <input type="text" class="form-control" id="txt7" readonly />        
+                                        <input type="text" class="form-control" id="txt7_cus" readonly />        
 
                                         <label class="form-label">Consultation Title</label>
                                     </div>
@@ -269,71 +409,155 @@
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <!-- <textarea name="description" cols="30" rows="5" class="form-control no-resize" id = "consultation-content" required></textarea> -->
-                                        <textarea class="form-control no-resize"cols="30" rows="5" id="txt8" readonly ></textarea>  
+                                        <textarea class="form-control no-resize"cols="30" rows="5" id="txt8_cus" readonly ></textarea>  
 
                                         <label class="form-label">Consultation Content</label>
                                     </div>
                                 </div>
-                               
-                                <button type="submit" class="btn btn-primary waves-effect" id="edit-consultation-btn">SUBMIT</button>
-                               
+                          
+                                <button type="submit" class="btn btn-primary waves-effect" id="edit-consultation-btn" style="display: none;" >EDIT COMPLETED</button>                                
+                                
+                                <button type="button" class="button2" id="show_list_btn" style="background-color: coral;" onclick="back_to_list()">SHOW HISTORY LIST</button>
+                                
                             </form>
 
                             <script>
+                                function back_to_list() {
+                                    document.getElementById("history_form").style="display:none"
+                                    document.getElementById("history_list").style="display:block"
+                                }
+                            </script>
+
+                            <script>
                                 function edit() {
-                                    if( document.getElementById("edit-consultation-btn").innerText  == "SUBMIT"){
-                                        document.getElementById("edit-consultation-btn").innerText  = "EDIT COMPLETE";
+                                    document.getElementById("edit-consultation-btn").style="display:block"      
+                             
                                         document.getElementById("edit").background= "blue";
-                                        var oEle1 = document.getElementById('txt1') ;
+                                        var oEle1 = document.getElementById('txt1_cus') ;
                                         oEle1.readOnly = false ;
-                                        var oEle2 = document.getElementById('now_date') ;
+                                        var oEle2 = document.getElementById('now_date_cus') ;
                                         oEle2.readOnly = false ;
-                                        var oEle3 = document.getElementById('birth') ;
+                                        var oEle3 = document.getElementById('birth_cus') ;
                                         oEle3.readOnly = false ;
-                                        var oEle4 = document.getElementById('treatment') ;
+                                        var oEle4 = document.getElementById('treatment_cus') ;
                                         oEle4.onclick=true;
-                                        var oEle5 = document.getElementById('beauty') ;
+                                        var oEle5 = document.getElementById('beauty_cus') ;
                                         oEle5.onclick=true;
-                                        var oEle6 = document.getElementById('txt6') ;
+                                        var oEle6 = document.getElementById('txt6_cus') ;
                                         oEle6.readOnly = false ;
-                                        var oEle7 = document.getElementById('txt7') ;
+                                        var oEle7 = document.getElementById('txt7_cus') ;
                                         oEle7.readOnly = false ;
-                                        var oEle8 = document.getElementById('txt8') ;
+                                        var oEle8 = document.getElementById('txt8_cus') ;
                                         oEle8.readOnly = false ;                                 
-                                    }                
+                                                 
                                 }
                             </script> 
 
-                            <script>
-                                function add() {                         
-                                        document.getElementById("edit-consultation-btn").innerText  = "SUBMIT";
-                                        document.getElementById("edit").background= "red";
-                                        var oEle1 = document.getElementById('txt1') ;
-                                        oEle1.readOnly = false ;
-                                        var oEle2 = document.getElementById('now_date') ;
-                                        oEle2.readOnly = false ;
-                                        var oEle3 = document.getElementById('birth') ;
-                                        oEle3.readOnly = false ;
-                                        var oEle4 = document.getElementById('treatment') ;
-                                        oEle4.onclick=true;
-                                        var oEle5 = document.getElementById('beauty') ;
-                                        oEle5.onclick=true;
-                                        var oEle6 = document.getElementById('txt6') ;
-                                        oEle6.readOnly = false ;
-                                        var oEle7 = document.getElementById('txt7') ;
-                                        oEle7.readOnly = false ;
-                                        var oEle8 = document.getElementById('txt8') ;
-                                        oEle8.readOnly = false ;                                  
-                                    }                
-                                
-                            </script> 
+          
                         </div>
                     </div>
                 </div>
-                <!-- #END# Basic Validation -->
             </div>
             </div>
         </section>
+        <!-- #END# Basic Validation -->
+
+                  <!-- Add history form -->
+                  <section class="content">
+                    <div class="container-fluid">
+                    <div class="row clearfix">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="card" id="new_history_form" style="display: none;">
+                                <div class="header">
+                                    <h2>New consultation history</h2>       
+                                </div>
+                                <div class="body">
+                                    <form id="new_form_validation" method="POST">
+                                        
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <!-- <input type="text" class="form-control" name="name", id="name" required> -->
+                                                <input type="text" class="form-control" id="txt1"  />        
+                                                <label class="form-label">Customer Name</label>
+                                            </div>
+                                        </div>
+        
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <label class="form-label">Birth</label> 
+                                                <input type="date" class="form-control" name="birth" required, id="birth" >
+                                                
+                                                <script>
+                                                    document.getElementById('birth').valueAsDate = new Date();
+                                                </script>
+                                            </div>
+                                        </div>                                
+                                        
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="date" class="form-control" name="date" required, id="now_date" >
+                                                <label class="form-label">Consultation Date</label> 
+                                                <script>
+                                                document.getElementById('now_date').valueAsDate = new Date();
+                                                </script>
+                                            </div>
+                                        </div>                               
+                                        
+                                        <div class="form-group form-float">
+                                            <div class="form-line">Consultation Type&nbsp;&nbsp;&nbsp;&nbsp;                                   
+                                                <input type="checkbox" class="filled-in" id="treatment" />        
+                                                <label for="treatment">Treatment &nbsp;&nbsp;&nbsp;</label>
+                                                <input type="checkbox" id="beauty" class="filled-in"   />       
+                                                <label for="beauty">Beauty</label>                                       
+                                            </div>
+                                        </div>
+                
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <!-- <input type="text" class="form-control" id="counselor" required> -->
+                                                <input type="text" class="form-control" id="txt6"  />        
+        
+                                                <label class="form-label">Counselor</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <!-- <input type="text" class="form-control" id="counsultation-title" required> -->
+                                                <input type="text" class="form-control" id="txt7"  />        
+        
+                                                <label class="form-label">Consultation Title</label>
+                                            </div>
+                                        </div>
+                                       
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <!-- <textarea name="description" cols="30" rows="5" class="form-control no-resize" id = "consultation-content" required></textarea> -->
+                                                <textarea class="form-control no-resize"cols="30" rows="5" id="txt8"  ></textarea>  
+        
+                                                <label class="form-label">Consultation Content</label>
+                                            </div>
+                                        </div>                                 
+                                        <button type="submit" class="btn btn-primary waves-effect" id="edit-consultation-btn" >SUBMIT</button>                                
+
+                                    </form>        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </section>
+                <!-- #END# Add history form  -->
+
+                <script>
+                    function add_history() {
+                        document.getElementById("new_history_form").style="display:block"      
+                        document.getElementById("consult_search_result").style="display:none"      
+                        document.getElementById("history_list").style="display:none"      
+                        document.getElementById("history_form").style="display:none"      
+
+                    }
+                </script> 
+
 
         <!-- Jquery Core Js -->
         <script src="../../../plugins/jquery/jquery.min.js"></script>
