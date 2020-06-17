@@ -35,11 +35,12 @@
     <script src='../../../fullCalendar/interaction/main.js'></script>
 
     <script>
+        var calendar;
 
         document.addEventListener('DOMContentLoaded', function() {
           var calendarEl = document.getElementById('calendar');
   
-          var calendar = calendar = new FullCalendar.Calendar(calendarEl, {
+          calendar = new FullCalendar.Calendar(calendarEl, {
             plugins: [ 'dayGrid' ,'interaction'],
             dateClick: function() {
                 alert("a day has been clicked");
@@ -257,49 +258,47 @@
                 </div>
             </div>
             <!-- #User Info -->
-            
+            <!-- Menu -->
+            <div class="menu">
+                <ul class="list">
+                    <li class="header">MENU LIST</li>
+                    <li>
+                        <a href="../../../index.html">
+                            <i class="material-icons">home</i>
+                            <span>Home</span>
+                        </a>
+                    </li>
 
- <!-- Menu -->
- <div class="menu">
-    <ul class="list">
-        <li class="header">MENU LIST</li>
-        <li>
-            <a href="../../../index.html">
-                <i class="material-icons">home</i>
-                <span>Home</span>
-            </a>
-        </li>
-
-        <li>
-            <a href="../../../pages/typography.html">
-                <i class="material-icons">text_fields</i>
-                <span>User Profile</span>
-            </a>
-        </li>
-        <li>
-            <a href="../../../pages/helper-classes.html">
-                <i class="material-icons">layers</i>
-                <span>Customer information</span>
-            </a>
-        </li>
-        <li>
-            <a href="../../../pages/widgets/cards/basic.html">
-                <i class="material-icons">widgets</i>
-                <span>Customer Consultation</span>
-            </a>
-        </li>
+                    <li>
+                        <a href="../../../pages/typography.html">
+                            <i class="material-icons">text_fields</i>
+                            <span>User Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../pages/helper-classes.html">
+                            <i class="material-icons">layers</i>
+                            <span>Customer information</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../../../pages/widgets/cards/basic.html">
+                            <i class="material-icons">widgets</i>
+                            <span>Customer Consultation</span>
+                        </a>
+                    </li>
 
 
-        <li class="active">
-            <a href="../../../pages/widgets/cards/no-header.html">
-                <i class="material-icons">swap_calls</i>
-                <span>Reservation Calender</span>
-            </a>
-        </li>
+                    <li class="active">
+                        <a href="../../../pages/widgets/cards/no-header.html">
+                            <i class="material-icons">swap_calls</i>
+                            <span>Reservation Calender</span>
+                        </a>
+                    </li>
 
 
-    </ul>
-</div>
+                </ul>
+            </div>
 
 
 
@@ -465,18 +464,18 @@
     </section>
     <section class="content">
         <div class="container-fluid">
-             <!--For customer search bar-->      
+            <!--For customer search bar-->
             <div class="box">
                 <div class="container-4">
-                     <form>
+                    <form>
                         <fieldset>
                             <table>
                                 <tr>
-                                    <td><input type="search" id="search" placeholder="이름" ></td>
-                                    <td rowspan="2"><input type="button" id="button" value="search" ></td>
+                                    <td><input type="search" id="search" placeholder="이름"></td>
+                                    <td rowspan="2"><input type="button" id="button" value="search"></td>
                                 </tr>
                                 <tr>
-                                    <td><input type="search" id="search" placeholder="생년월일" ></td>
+                                    <td><input type="search" id="search" placeholder="생년월일"></td>
                                 </tr>
                                 <tr>
                                     <td></td>
@@ -484,27 +483,27 @@
                         </fieldset>
                     </form>
                 </div>
-            </div>  
-
-            <div>  
-                <span class="close-button">&times;</span>
-                    <h1 class="title">스케줄 추가</h1>
-                    <form name="Schedule" method="POST">
-            
-                        <input type="text" name="Name" placeholder="Name" required="required">
-                        <label></label>
-                        <input type="date" name="Date" placeholder="Date" required="required">
-                        <label></label>
-                        <input type="time" name="Time" placeholder="Time" required="required">
-                        <label></label>
-                        <input type="text" name="Doctor" placeholder="Doctor" required="required">
-                        <label></label>
-                        <input type="button" id="cancel" value="취소">
-                        <input type="submit" id="submit" value="저장하기">
-                    </form>                      
             </div>
-      
-              <div id='calendar'>
+
+            <div>
+                <span class="close-button">&times;</span>
+                <h1 class="title">스케줄 추가</h1>
+                <form name="Schedule" method="POST">
+
+                    <input type="text" name="Name" placeholder="Name" required="required">
+                    <label></label>
+                    <input type="date" name="Date" placeholder="Date" required="required">
+                    <label></label>
+                    <input type="time" name="Time" placeholder="Time" required="required">
+                    <label></label>
+                    <input type="text" name="Doctor" placeholder="Doctor" required="required">
+                    <label></label>
+                    <input type="button" id="cancel" value="취소">
+                    <input type="submit" id="submit" value="저장하기">
+                </form>
+            </div>
+
+            <div id='calendar'>
             </div>
         </div>
     </section>
@@ -533,5 +532,16 @@
 
     <!-- Demo Js -->
     <script src="../../../js/demo.js"></script>
+
+    <!-- Firebase Js-->
+    <script src='https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js'></script>
+    <script src='https://www.gstatic.com/firebasejs/7.15.0/firebase-analytics.js'></script>
+    <script src='https://www.gstatic.com/firebasejs/7.15.0/firebase-auth.js'></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-firestore.js"></script>
+    <script src="../../../js/firebase/fb-init.js"></script>
+    <script src="../../../js/firebase/fb-main-user.js"></script>
+    <script src="../../../js/firebase/fb-calendar.js"></script>
+
 </body>
 </html>
