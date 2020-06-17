@@ -23,7 +23,6 @@ function addBooking(number,name,status,doc,time) {
         default:
             break;
     }
-    console.log(number,name,status,doc,time,color);
     let tmp_html = `<tr>\
             <td>${number}</td>\
             <td>${name}</td>\
