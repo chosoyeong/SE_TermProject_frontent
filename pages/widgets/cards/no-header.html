@@ -488,18 +488,18 @@
             <div>
                 <span class="close-button">&times;</span>
                 <h1 class="title">스케줄 추가</h1>
-                <form name="Schedule" method="POST">
+                <form name="Schedule" method="POST" target="temp">
 
-                    <input type="text" name="Name" placeholder="Name" required="required">
+                    <input type="text" id="Name" name="Name" placeholder="Name" required="required">
                     <label></label>
-                    <input type="date" name="Date" placeholder="Date" required="required">
+                    <input type="date" id="Date" name="Date" placeholder="Date" required="required">
                     <label></label>
-                    <input type="time" name="Time" placeholder="Time" required="required">
+                    <input type="time" id="Time" name="Time" placeholder="Time" required="required">
                     <label></label>
-                    <input type="text" name="Doctor" placeholder="Doctor" required="required">
+                    <input type="text" id="Doctor" name="Doctor" placeholder="Doctor" required="required">
                     <label></label>
                     <input type="button" id="cancel" value="취소">
-                    <input type="submit" id="submit" value="저장하기">
+                    <input type="submit" id="submit" onclick="addSchedule()" value="저장하기">
                 </form>
             </div>
 
@@ -508,6 +508,7 @@
         </div>
     </section>
 
+    <iframe id="if" name="temp" style="width:0px; height:0px; visibility:hidden"></iframe>
 
     <!-- Jquery Core Js -->
     <script src="../../../plugins/jquery/jquery.min.js"></script>

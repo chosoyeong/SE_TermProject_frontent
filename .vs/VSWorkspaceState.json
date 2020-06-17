@@ -2,14 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\js",
-    "\\js\\firebase",
     "\\js\\pages",
     "\\js\\pages\\cards",
     "\\pages",
     "\\pages\\examples",
     "\\pages\\widgets",
-    "\\pages\\widgets\\cards"
+    "\\pages\\widgets\\cards",
+    "\\plugins",
+    "\\plugins\\jquery"
   ],
-  "SelectedNode": "\\js\\firebase\\fb-counsultation-history.js",
+  "SelectedNode": "\\plugins\\jquery\\jquery.js",
   "PreviewInSolutionExplorer": false
 }
