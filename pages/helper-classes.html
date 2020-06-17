@@ -216,8 +216,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">ADD</button>
+                    <button type="button" id="add-customer-btn" data-dismiss="modal" class="btn btn-primary">ADD</button>
                     </div>
                 </div>
                 </div>
@@ -267,51 +266,17 @@
                                     <th>#</th>
                                     <th>customer name</th>
                                     <th>Birth</th>
+                                    <th>Phone</th>
                 
                                 </tr>
                             </thead>
-                            <tbody input type="button" onclick="select_customer()">
-                                <tr>
-                                    <td>1</td>
-                                    <td>Gildong</td>
-                                    <td>00.01.01</td>
-                             
-                
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>nana </td>
-                                    <td>01.12.25</td>
-                              
-                                
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>yumi C</td>
-                                    <td>99.05.05</td>
-                                   
-                                
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>soso</td>
-                                    <td>98.06.01</td>
-                                    
-                               
-                                </tr>
-                
+                            <tbody input type="button" id="customer-lists">
                             </tbody>
                         </table>
                     </div>
                 </div>
                 </div>                  
 
-                <script>
-                    function select_customer() {
-                        document.getElementById("informatio_form").style="display:block" 
-                        document.getElementById("search_result").style="display:none"     
-                    }
-                </script> 
              <!--For customer serach Result End--> 
                 
                     <div class="card" id="informatio_form" style="display:none">

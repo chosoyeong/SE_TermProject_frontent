@@ -30,23 +30,41 @@ function addCustomer(evt){
     $("#birth").val("");
     $("#contact-number").val("");
 }
+function customerList(id,number,name,birth,phone){
+    let tmp_html = `<tr id="${id}">\
+        <td>${number}</td>\
+        <td>${name}</td>\
+        <td>${birth}</td>\
+        <td>${phone}</td>\
+    </tr>`;
 
+    $("#customer-lists").append(tmp_html);
+}
 function searchCustomer(){
+    var ctmrListArray = new Array();
+    
+    $("#customer-lists").html("");
+    var index=0;
     var name = $("#search-name").val();
     var birth = $("#search-birth").val();
     
     db.collection("Customer").where("customerName","==",name).where("customerBirth","==",birth).get()
     .then(function (querySnapshot){
        querySnapshot.forEach(function (doc){
-           data = doc.data();
-           $("#txt1").val(data["customerName"]);
-           $("#txt2").val(data["customerBirth"]);
-           $("#txt3").val(data["customerPhoneNo"]);
-           $("#txt4").val(data["sell"]);
-           $("#txt5").val(data["reservation"]);
-           $("#txt6").val(data["consulting"]);
-           $("#txt7").val(data["points"]);
-           $("#txt8").val(data["coupons"]);
+            var document = new Object();
+            document.id = doc.ref.id;
+            document.data = doc.data();
+            ctmrListArray.push(document);
+            data = doc.data();
+            customerList(doc.ref.id,++index,data["customerName"],data["customerBirth"],data["customerPhoneNo"]);
+            //  $("#txt1").val(data["customerName"]);
+            // $("#txt2").val(data["customerBirth"]);
+            // $("#txt3").val(data["customerPhoneNo"]);
+            // $("#txt4").val(data["sell"]);
+            // $("#txt5").val(data["reservation"]);
+            // $("#txt6").val(data["consulting"]);
+            // $("#txt7").val(data["points"]);
+            // $("#txt8").val(data["coupons"]);
        })
        $("#search-name").val("");
        $("#search-birth").val("");
@@ -146,12 +164,18 @@ function editCustomer() {
 
     }
 }
+function select_customer() {
+    document.getElementById("informatio_form").style="display:block" 
+    document.getElementById("search_result").style="display:none"   
+    alert()
+}
 
 window.onload = function () {
     document.getElementById('add-customer-btn').addEventListener('click', addCustomer,false);
     document.getElementById('search-btn').addEventListener('click', searchCustomer,false);
     document.getElementById('delete-customer-btn').addEventListener('click', deleteCustomer,false);
     document.getElementById('edit-customer-btn').addEventListener('click', editCustomer,false);
+    document.getElementById('customer-lists').addEventListener('click', select_customer,false);
 }
 
 var db = firebase.firestore();
