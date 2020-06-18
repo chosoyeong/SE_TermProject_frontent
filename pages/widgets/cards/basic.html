@@ -181,7 +181,7 @@
                                         <div class="form-group form-float">
                                             <div class="form-line">
                                                 <!-- <input type="text" class="form-control" name="name", id="name" required> -->
-                                                <input type="text" class="form-control" id="txt1_cus" readonly />        
+                                                <input type="text" class="form-control" id="txt1_cus"  />        
                                                 <label class="form-label">Customer Name</label>
                                             </div>
                                         </div>
@@ -189,7 +189,7 @@
                                         <div class="form-group form-float">
                                             <div class="form-line">
                                                 <label class="form-label">Birth</label> 
-                                                <input type="date" class="form-control" name="birth" required, id="birth_cus" readonly>
+                                                <input type="date" class="form-control" name="birth" required, id="birth_cus" >
                                                 
                                                 <script>
                                                     document.getElementById('birth_cus').valueAsDate = new Date();
@@ -199,20 +199,29 @@
                                         
                                         <div class="form-group form-float">
                                             <div class="form-line">
-                                                <input type="date" class="form-control" name="date" required, id="now_date_cus" readonly>
+                                                <input type="date" class="form-control" name="date" required, id="now_date_cus" >
                                                 <label class="form-label">Consultation Date</label> 
                                                 <script>
                                                 document.getElementById('now_date_cus').valueAsDate = new Date();
                                                 </script>
                                             </div>
-                                        </div>                               
-                                        
+                                        </div>       
+
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <!-- <input type="text" class="form-control" id="counselor" required> -->
+                                                <input type="text" class="form-control" id="phone_cus"  />        
+        
+                                                <label class="form-label">Contact-number</label>
+                                            </div>
+                                        </div>
+
                                         <div class="form-group form-float">
                                             <div class="form-line">Consultation Type&nbsp;&nbsp;&nbsp;&nbsp;                                   
-                                                <input type="checkbox" class="filled-in" id="treatment_cus" checked onclick="return false;" />        
+                                                <input type="checkbox" class="filled-in" id="treatment_cus"  />        
                                                 <label for="treatment_cus">Treatment&nbsp;&nbsp;&nbsp;</label>
         
-                                                <input type="checkbox" id="beauty_cus" class="filled-in" aria-checked onclick="return false;"  />       
+                                                <input type="checkbox" id="beauty_cus" class="filled-in"  />       
                                                 <label for="beauty_cus">Beauty</label>                                       
                                             </div>
                                         </div>
@@ -220,7 +229,7 @@
                                         <div class="form-group form-float">
                                             <div class="form-line">
                                                 <!-- <input type="text" class="form-control" id="counselor" required> -->
-                                                <input type="text" class="form-control" id="txt6_cus" readonly />        
+                                                <input type="text" class="form-control" id="txt6_cus"  />        
         
                                                 <label class="form-label">Counselor</label>
                                             </div>
@@ -228,7 +237,7 @@
                                         <div class="form-group form-float">
                                             <div class="form-line">
                                                 <!-- <input type="text" class="form-control" id="counsultation-title" required> -->
-                                                <input type="text" class="form-control" id="txt7_cus" readonly />        
+                                                <input type="text" class="form-control" id="txt7_cus"  />        
         
                                                 <label class="form-label">Consultation Title</label>
                                             </div>
@@ -237,7 +246,7 @@
                                         <div class="form-group form-float">
                                             <div class="form-line">
                                                 <!-- <textarea name="description" cols="30" rows="5" class="form-control no-resize" id = "consultation-content" required></textarea> -->
-                                                <textarea class="form-control no-resize"cols="30" rows="5" id="txt8_cus" readonly ></textarea>  
+                                                <textarea class="form-control no-resize"cols="30" rows="5" id="txt8_cus"  ></textarea>  
         
                                                 <label class="form-label">Consultation Content</label>
                                             </div>
@@ -249,8 +258,7 @@
                                     </form>
                                 </div>
                                 <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">ADD</button>
+                                <button type="button" id="add-consultation-btn" class="btn btn-primary" data-dismiss="modal">ADD</button>
                                 </div>
                             </div>
                             </div>
@@ -263,31 +271,21 @@
                                     <fieldset>
                                         <table>
                                             <tr>
-                                                <td><input type="search" id="search" placeholder="이름" ></td>
-                                                <td  style="padding-left:15px"><input type="date" id="search" placeholder="생년월일" ></td>
-                                                <td  style="padding-left:15px" rowspan="2"><input type="button" id="button" value="search" onclick="const_search()"></td>
+                                                <td><input type="search" id="search-name" placeholder="이름" ></td>
+                                                <td  style="padding-left:15px"><input type="date" id="search-birth" placeholder="생년월일" ></td>
+                                                <td  style="padding-left:15px" rowspan="2"><input type="button" id="search-btn" value="search" onclick="const_search()"></td>
                                             </tr>
-                                         
-                                            <tr>
-                                                <td></td>
                                         </table>
                                     </fieldset>
                                 </form>   
-                            
-
                             </div>  
-                                                
                         </div> 
-                
-
                         <script>
                             function const_search() {
                                 document.getElementById("history_form").style="display:none"      
                                 document.getElementById("consult_search_result").style="display:block"      
                                 document.getElementById("history_list").style="display:none" 
                                 document.getElementById("new_history_form").style="display:none"      
-     
-
                             }
                         </script> 
 
@@ -301,39 +299,11 @@
                                     <th>#</th>
                                     <th>customer name</th>
                                     <th>Birth</th>
-                                    
-                
+                                    <th>Phone</th>
                                 </tr>
                             </thead>
-                            <tbody input type="button" onclick="select_customer()">
-                                <tr>
-                                    <td>1</td>
-                                    <td>Gildong</td>
-                                    <td>00.01.01</td>
+                            <tbody id="customer-lists" onclick="select_customer()">
                              
-                
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>nana </td>
-                                    <td>01.12.25</td>
-                              
-                                
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>yumi C</td>
-                                    <td>99.05.05</td>
-                                   
-                                
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>soso</td>
-                                    <td>98.06.01</td>
-                                    
-                                </tr>
-                
                             </tbody>
                         </table>
                     </div>
@@ -366,23 +336,7 @@
             
                             </tr>
                         </thead>
-                        <tbody input type="button" onclick="select_history()">
-                            <tr>
-                                <td>1</td>
-                                <td>레이저 시술</td>
-                                <td>20.06.01</td>
-                        
-            
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>압출주사 </td>
-                                <td>20.06.17</td>
-                        
-                            
-                            </tr>
-            
-            
+                        <tbody id="history-lists" onclick="select_history()">
                         </tbody>
                     </table>
                 </div>
@@ -395,16 +349,10 @@
                     document.getElementById("consult_search_result").style="display:none"
                     document.getElementById("history_form").style="display:block" 
                     document.getElementById("new_history_form").style="display:none"      
-
-    
                 }
             </script> 
         <!--For customer History Result End--> 
-
-
-
                     </div>
-
                 </section>  
 
 
@@ -426,8 +374,8 @@
                                         <i class="material-icons">more_vert</i>
                                     </a>
                                     <ul class="dropdown-menu pull-right">
-                                        <li><a id="edit" onclick="edit()" >EDIT</li>
-                                        <li><a id="delete">DELETE</a></li>
+                                        <li><a id="edit-consultation-btn">EDIT</li>
+                                        <li><a id="delete-consultation-btn">DELETE</a></li>
                                     </ul>
                                 </li>
 
@@ -440,7 +388,7 @@
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <!-- <input type="text" class="form-control" name="name", id="name" required> -->
-                                        <input type="text" class="form-control" id="txt1_cus" readonly />        
+                                        <input type="text" class="form-control" id="txt1" readonly />        
                                         <label class="form-label">Customer Name</label>
                                     </div>
                                 </div>
@@ -448,38 +396,38 @@
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <label class="form-label">Birth</label> 
-                                        <input type="date" class="form-control" name="birth" required, id="birth_cus" readonly>
+                                        <input type="date" class="form-control" name="birth" required, id="birth" readonly>
                                         
                                         <script>
-                                            document.getElementById('birth_cus').valueAsDate = new Date();
+                                            document.getElementById('birth').valueAsDate = new Date();
                                         </script>
                                     </div>
                                 </div>                                
                                 
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="date" class="form-control" name="date" required, id="now_date_cus" readonly>
+                                        <input type="date" class="form-control" name="date" required, id="now_date" readonly>
                                         <label class="form-label">Consultation Date</label> 
                                         <script>
-                                        document.getElementById('now_date_cus').valueAsDate = new Date();
+                                        document.getElementById('now_date').valueAsDate = new Date();
                                         </script>
                                     </div>
                                 </div>                               
                                 
                                 <div class="form-group form-float">
                                     <div class="form-line">Consultation Type&nbsp;&nbsp;&nbsp;&nbsp;                                   
-                                        <input type="checkbox" class="filled-in" id="treatment_cus" checked onclick="return false;" />        
-                                        <label for="treatment_cus">Treatment&nbsp;&nbsp;&nbsp;</label>
+                                        <input type="checkbox" class="filled-in" id="treatment" checked onclick="return false;" />        
+                                        <label for="treatment">Treatment&nbsp;&nbsp;&nbsp;</label>
 
-                                        <input type="checkbox" id="beauty_cus" class="filled-in" aria-checked onclick="return false;"  />       
-                                        <label for="beauty_cus">Beauty</label>                                       
+                                        <input type="checkbox" id="beauty" class="filled-in" aria-checked onclick="return false;"  />       
+                                        <label for="beauty">Beauty</label>                                       
                                     </div>
                                 </div>
         
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <!-- <input type="text" class="form-control" id="counselor" required> -->
-                                        <input type="text" class="form-control" id="txt6_cus" readonly />        
+                                        <input type="text" class="form-control" id="txt6" readonly />        
 
                                         <label class="form-label">Counselor</label>
                                     </div>
@@ -487,7 +435,7 @@
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <!-- <input type="text" class="form-control" id="counsultation-title" required> -->
-                                        <input type="text" class="form-control" id="txt7_cus" readonly />        
+                                        <input type="text" class="form-control" id="txt7" readonly />        
 
                                         <label class="form-label">Consultation Title</label>
                                     </div>
@@ -496,7 +444,7 @@
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <!-- <textarea name="description" cols="30" rows="5" class="form-control no-resize" id = "consultation-content" required></textarea> -->
-                                        <textarea class="form-control no-resize"cols="30" rows="5" id="txt8_cus" readonly ></textarea>  
+                                        <textarea class="form-control no-resize"cols="30" rows="5" id="txt8" readonly ></textarea>  
 
                                         <label class="form-label">Consultation Content</label>
                                     </div>
@@ -516,28 +464,7 @@
                             </script>
 
                             <script>
-                                function edit() {
-                                    document.getElementById("edit-consultation-btn").style="display:block"      
-                             
-                                        document.getElementById("edit").background= "blue";
-                                        var oEle1 = document.getElementById('txt1_cus') ;
-                                        oEle1.readOnly = false ;
-                                        var oEle2 = document.getElementById('now_date_cus') ;
-                                        oEle2.readOnly = false ;
-                                        var oEle3 = document.getElementById('birth_cus') ;
-                                        oEle3.readOnly = false ;
-                                        var oEle4 = document.getElementById('treatment_cus') ;
-                                        oEle4.onclick=true;
-                                        var oEle5 = document.getElementById('beauty_cus') ;
-                                        oEle5.onclick=true;
-                                        var oEle6 = document.getElementById('txt6_cus') ;
-                                        oEle6.readOnly = false ;
-                                        var oEle7 = document.getElementById('txt7_cus') ;
-                                        oEle7.readOnly = false ;
-                                        var oEle8 = document.getElementById('txt8_cus') ;
-                                        oEle8.readOnly = false ;                                 
-                                                 
-                                }
+                                
                             </script> 
 
           

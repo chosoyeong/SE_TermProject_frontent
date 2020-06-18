@@ -1,4 +1,4 @@
-
+var customerID;
 const customerName = document.getElementById('name');
 const customerBirth = document.getElementById('birth');
 const customerPhoneNo = document.getElementById('contact-number');
@@ -31,7 +31,7 @@ function addCustomer(evt){
     $("#contact-number").val("");
 }
 function customerList(id,number,name,birth,phone){
-    let tmp_html = `<tr id="${id}">\
+    let tmp_html = `<tr id="${id}" class="tdcls">\
         <td>${number}</td>\
         <td>${name}</td>\
         <td>${birth}</td>\
@@ -39,10 +39,9 @@ function customerList(id,number,name,birth,phone){
     </tr>`;
 
     $("#customer-lists").append(tmp_html);
+    
 }
 function searchCustomer(){
-    var ctmrListArray = new Array();
-    
     $("#customer-lists").html("");
     var index=0;
     var name = $("#search-name").val();
@@ -51,20 +50,8 @@ function searchCustomer(){
     db.collection("Customer").where("customerName","==",name).where("customerBirth","==",birth).get()
     .then(function (querySnapshot){
        querySnapshot.forEach(function (doc){
-            var document = new Object();
-            document.id = doc.ref.id;
-            document.data = doc.data();
-            ctmrListArray.push(document);
             data = doc.data();
             customerList(doc.ref.id,++index,data["customerName"],data["customerBirth"],data["customerPhoneNo"]);
-            //  $("#txt1").val(data["customerName"]);
-            // $("#txt2").val(data["customerBirth"]);
-            // $("#txt3").val(data["customerPhoneNo"]);
-            // $("#txt4").val(data["sell"]);
-            // $("#txt5").val(data["reservation"]);
-            // $("#txt6").val(data["consulting"]);
-            // $("#txt7").val(data["points"]);
-            // $("#txt8").val(data["coupons"]);
        })
        $("#search-name").val("");
        $("#search-birth").val("");
@@ -75,24 +62,19 @@ function searchCustomer(){
 }
 
 function deleteCustomer(){
-    var name = $("#txt1").val();
-    var birth = $("#txt2").val();
-    if(name||birth !== null){
-
-        db.collection("Customer").where("customerName","==",name).where("customerBirth","==",birth).get()
-        .then(function(querySnapshot){
-            querySnapshot.forEach(function (doc) {
-                doc.ref.delete();
-                alert("successfully deleted");
-                console.log("successfully deleted");
-            });
-        })
-        .catch(function(error){
-            alert(error);
-        });
-    }
+    db.collection("Customer")
+    .doc(customerID)
+    .delete()
+    .then(()=>{
     
+        alert("successfully deleted");
+        console.log("successfully deleted");
+    })
+    .catch(function(error){
+        console.log(error);
+    });
 }
+    
 
 function editCustomer() {
     if( document.getElementById("edit-customer-btn").innerText  == "완료"){
@@ -114,29 +96,23 @@ function editCustomer() {
         var oEle8 = document.getElementById('txt8') ;
         oEle8.readOnly = true ;
 
-        var name = $("#txt1").val();
-        var birth = $("#txt2").val();
-
-        db.collection("Customer").where("customerName","==",name).where("customerBirth","==",birth).get()
-        .then(function(querySnapshot){
-            querySnapshot.forEach(function (doc) {
-                db.collection("Customer")
-                .doc(doc.ref.id)
-                .set({
-                    customerName: $('#txt1').val(),
-                    customerBirth: $('#txt2').val(),
-                    customerPhoneNo:$('#txt3').val(),
-                    level:"SILVER",
-                    sell:$('#txt4').val(),
-                    reservation:$('#txt5').val(),
-                    consulting:$('#txt6').val(),
-                    points:$('#txt7').val(),
-                    coupons:$('#txt8').val()                   
-                })
-            });
-            alert("successfully updated");
+        db.collection("Customer")
+        .doc(customerID)
+        .set({
+            customerName: $('#txt1').val(),
+            customerBirth: $('#txt2').val(),
+            customerPhoneNo:$('#txt3').val(),
+            level:"SILVER",
+            sell:$('#txt4').val(),
+            reservation:$('#txt5').val(),
+            consulting:$('#txt6').val(),
+            points:$('#txt7').val(),
+            coupons:$('#txt8').val()                   
         })
-        .catch(function(error){
+        .then((docRef)=>{
+            alert("succesfully updated");
+        })
+         .catch(function(error){
             alert(error);
         });
   
@@ -164,18 +140,45 @@ function editCustomer() {
 
     }
 }
-function select_customer() {
+function select_customer(id) {
+    db.collection("Customer")
+    .doc(id)
+    .get()
+    .then((docRef)=>{
+            data = docRef.data();
+            $("#txt1").val(data["customerName"]);
+            $("#txt2").val(data["customerBirth"]);
+            $("#txt3").val(data["customerPhoneNo"]);
+            $("#txt4").val(data["sell"]);
+            $("#txt5").val(data["reservation"]);
+            $("#txt6").val(data["consulting"]);
+            $("#txt7").val(data["points"]);
+            $("#txt8").val(data["coupons"]);
+       })
+    .catch((error)=>{
+        alert("error in select_customer");
+    })
     document.getElementById("informatio_form").style="display:block" 
     document.getElementById("search_result").style="display:none"   
-    alert()
+    
 }
+
+$("#customer-lists").on("click", "tr", function() { 
+        var id = $(this).attr('id');
+        customerID = id;
+        select_customer(id);
+ });
 
 window.onload = function () {
     document.getElementById('add-customer-btn').addEventListener('click', addCustomer,false);
     document.getElementById('search-btn').addEventListener('click', searchCustomer,false);
     document.getElementById('delete-customer-btn').addEventListener('click', deleteCustomer,false);
     document.getElementById('edit-customer-btn').addEventListener('click', editCustomer,false);
-    document.getElementById('customer-lists').addEventListener('click', select_customer,false);
+   
+
 }
+
+    
+
 
 var db = firebase.firestore();
