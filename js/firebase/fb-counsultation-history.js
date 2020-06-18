@@ -119,9 +119,7 @@ $("#customer-lists").on("click", "tr", function() {
              HistoryList(doc.ref.id,++index,data["title"],data["consultationDate"]);
         })
      })
-     .catch(function(error){
-         alert(error);
-     });
+    
 });
 
 function clearConsulting(){
