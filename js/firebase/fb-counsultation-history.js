@@ -9,10 +9,9 @@ const counselor = document.getElementById('txt6_cus');
 const title = document.getElementById('txt7_cus');
 const content = document.getElementById('txt8_cus');
 var customerID;
-
+var historyID;
 function addConsultation(evt){
     evt.preventDefault();
-    alert("sdf");
     db.collection("Customer")
     .where("customerName","==",customerName.value)
     .where("customerBirth","==",customerBirth.value)
@@ -21,7 +20,6 @@ function addConsultation(evt){
     .then(function (querySnapshot){
        querySnapshot.forEach(function (doc){
             data = doc.data();
-            alert(doc.ref.id);
             var postData={
                 customerName: customerName.value,
                 customerBirth: customerBirth.value,
@@ -108,18 +106,18 @@ function allClear(){
 }
 
 $("#customer-lists").on("click", "tr", function() { 
-    $("#history-lists").html("");
+    
     var id = $(this).attr('id');
     customerID = id;
-    alert(id);
-    db.collection("History").where("customerId","==",id).get()
-    .then(function (querySnapshot){
+    db.collection("History").where("customerId","==",id)
+    .onSnapshot(function (querySnapshot){
+        $("#history-lists").html("");
         var index=0;
+        console.log(querySnapshot);
         querySnapshot.forEach(function (doc){
              data = doc.data();
              HistoryList(doc.ref.id,++index,data["title"],data["consultationDate"]);
         })
-
      })
      .catch(function(error){
          alert(error);
@@ -139,7 +137,7 @@ function clearConsulting(){
 
 $("#history-lists").on("click", "tr", function() { 
     var id = $(this).attr('id');
-    alert(id);
+    historyID=id;
     db.collection("History")
     .doc(id)
     .get()
@@ -180,10 +178,34 @@ function editConsultation() {
         oEle8.readOnly = false ;                                 
                  
 }
+
+function deleteConsultation(){
+    db.collection("History")
+    .doc(historyID)
+    .delete()
+    .then(()=>{
+        alert("successfully deleted");
+        console.log("successfully deleted");
+    })
+    .catch(function(error){
+        console.log(error);
+    });
+    clearConsulting();
+    back_to_list();
+}
+
+function back_to_list() {
+    document.getElementById("history_form").style="display:none"
+    document.getElementById("history_list").style="display:block"
+}
+
 window.onload = function () {
     document.getElementById('add-consultation-btn').addEventListener('click', addConsultation,false);
     document.getElementById('search-btn').addEventListener('click', searchCustomer,false);
     document.getElementById('edit-consultation-btn').addEventListener('click', editConsultation,false);
+    document.getElementById('delete-consultation-btn').addEventListener('click', deleteConsultation,false);
+    document.getElementById('show_list_btn').addEventListener('click', back_to_list,false);
+    
 }
 
 var db = firebase.firestore();
