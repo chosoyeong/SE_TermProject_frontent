@@ -43,16 +43,16 @@
           calendar = new FullCalendar.Calendar(calendarEl, {
             plugins: [ 'dayGrid' ,'interaction'],
             dateClick: function(info) {
-               
                 $('#exampleModalCenter').modal('show');          
+
                 clicked_date=info.dateStr
-                addEventListener.call(date_to_form())    
+                addEventListener.call(date_to_form())  
+                               
+              
             },
-            eventClick: function(info){
-
-$('#edit_reservation').modal('show');      
-
-}
+            eventClick: function(){
+                $('#edit_reservation').modal('show');          
+            }
           });
   
           calendar.render();
@@ -68,10 +68,12 @@ $('#edit_reservation').modal('show');
       </script>
 
         <script>
-            function date_to_form() {
-               
-                document.getElementById('Date').value=clicked_date                                                
+            function date_to_form() {                
+                document.getElementById('Date').value=clicked_date 
+
             }
+        </script> 
+      </script>
         </script> 
 
 </head>
@@ -166,12 +168,7 @@ $('#edit_reservation').modal('show');
             background-color: darkgray;
         }
 
-    .show-modal {
-        opacity: 1;
-        visibility: visible;
-        transform: scale(1.0);
-        transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
-    }
+
 </style>
 
 <body class="theme-red">
@@ -476,7 +473,7 @@ $('#edit_reservation').modal('show');
             <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">스케쥴 변경</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">예약 변경</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -499,35 +496,37 @@ $('#edit_reservation').modal('show');
         </div>
            </div>
         </div>
-       
-          <!-- Modal -->
-          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                  <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLongTitle">고객정보</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                  </button>
-                  </div>
-                  <div class="modal-body">
-              <form name="Schedule" method="POST" target="temp">
 
-                  <input type="text" id="Name" name="Name" placeholder="Name" required="required">
-                  <label></label>
-                  <input type="date" id="Date" name="Date" placeholder="Date" required="required">
-                  <label></label>
-                  <input type="time" id="Time" name="Time" placeholder="Time" required="required">
-                  <label></label>
-                  <input type="text" id="Doctor" name="Doctor" placeholder="Doctor" required="required">
-                  <label></label>
-                  <input type="button" id="cancel" data-dismiss="modal" value="취소">
-                  <input type="submit" id="submit" onclick="addSchedule()" value="저장하기">
-              </form>
-          </div>
-          </div>
-             </div>
-          </div>
+ 
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">예약 추가</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+              </div>
+              <div class="modal-body">
+          <form name="Schedule" method="POST" target="temp">
+
+              <input type="text" id="Name" name="Name" placeholder="Name" required="required">
+              <label></label>
+              <input type="date" id="Date" name="Date" placeholder="Date" required="required">
+              <label></label>
+              <input type="time" id="Time" name="Time" placeholder="Time" required="required">
+              <label></label>
+              <input type="text" id="Doctor" name="Doctor" placeholder="Doctor" required="required">
+              <label></label>
+              <input type="button" id="cancel" data-dismiss="modal" value="취소">
+              <input type="submit" id="submit" onclick="addSchedule()" value="저장하기">
+          </form>
+      </div>
+      </div>
+         </div>
+      </div>
 
 
             <div id='calendar'>

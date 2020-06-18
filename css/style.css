@@ -2,6 +2,11 @@
 
 
 @import url(materialize.css);
+
+.btnImages {
+  width: 100px;
+  height: 100px;
+}
 .navbar {
   font-family: "Roboto", sans-serif;
   -webkit-border-radius: 0;
@@ -5051,6 +5056,11 @@ section.content {
     bottom: 25px;
     left: 0;
     font-size: 12px; }
+    .input-group .form-line.focused .form-label2 {
+      bottom: 0px;
+      left: 0;
+      font-size: 12px; }
+
   .input-group .input-group-addon {
     border: none;
     background-color: transparent;
