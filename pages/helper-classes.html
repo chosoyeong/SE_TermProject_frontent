@@ -284,7 +284,6 @@
                                 <ul class="nav nav-tabs" role="tablist">
                                     <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Profile</a></li>
                                 </ul>
-
                                 <div class="tab-content">
                                     <div role="tabpanel" class="tab-pane fade in active" id="home">
                                         <form class="form-horizontal">
@@ -381,11 +380,15 @@
                                                     </div>
                                                 </div>
                                             </div>   
+                                            <button type="button" class="button" id="info_prev_btn" style="background-color:rgb(169, 250, 253);" onclick="back_to_cus_list()">back</button>
+
                                             <div class="form-group">
                                                 
                                                 <div class="col-sm-offset-2 col-sm-10">
                                                     <button type="button" class="btn btn-danger" id="edit-customer-btn" >EDIT</button>
                                                     <button type="button" class="btn btn-danger" id="delete-customer-btn">DELETE</button>
+                                              
+
                                                 </div>
                                             </div>                                                    
                                         </form>                 
@@ -403,7 +406,12 @@
             </div>
         </div>
     </section>
-
+    <script>
+        function back_to_cus_list() {
+            document.getElementById("informatio_form").style="display:none"
+            document.getElementById("search_result").style="display:block"
+        }
+    </script>
 
     
     
