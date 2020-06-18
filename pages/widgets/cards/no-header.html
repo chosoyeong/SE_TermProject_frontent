@@ -47,11 +47,11 @@
 
                 clicked_date=info.dateStr
                 addEventListener.call(date_to_form())  
-                               
-              
             },
-            eventClick: function(){
-                $('#edit_reservation').modal('show');          
+            eventClick: function(info){
+                $('#edit_reservation').modal('show');   
+  
+
             }
           });
   
@@ -478,10 +478,11 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
                 </div>
+
                 <div class="modal-body">
             <form name="Schedule" method="POST" target="temp">
 
-                <input type="text" id="Name_edit" name="Name" placeholder="Name" required="required">
+                <input type="text" id="Name_edit" name="Name" placeholder="Name" required="required" readonly>
                 <label></label>
                 <input type="date" id="Date_edit" name="Date" placeholder="Date" required="required">
                 <label></label>
@@ -489,8 +490,8 @@
                 <label></label>
                 <input type="text" id="Doctor_edit" name="Doctor" placeholder="Doctor" required="required">
                 <label></label>
-                <input type="button" id="cancel_edit" data-dismiss="modal" value="취소">
-                <input type="submit" id="submit_edit" onclick="addSchedule()" value="저장하기">
+                <input type="button" id="delete_reservation" data-dismiss="modal" value="삭제하기">
+                <input type="submit" id="submit_edit" onclick="addSchedule()" value="변경하기">
             </form>
         </div>
         </div>
