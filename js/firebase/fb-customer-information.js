@@ -50,10 +50,8 @@ function searchCustomer(){
     db.collection("Customer").where("customerName","==",name).where("customerBirth","==",birth).get()
     .then(function (querySnapshot){
        querySnapshot.forEach(function (doc){
-         
             data = doc.data();
             customerList(doc.ref.id,++index,data["customerName"],data["customerBirth"],data["customerPhoneNo"]);
- 
        })
        $("#search-name").val("");
        $("#search-birth").val("");
@@ -64,7 +62,6 @@ function searchCustomer(){
 }
 
 function deleteCustomer(){
-    alert(customerID);
     db.collection("Customer")
     .doc(customerID)
     .delete()
@@ -78,8 +75,6 @@ function deleteCustomer(){
     });
 }
     
-
-
 
 function editCustomer() {
     if( document.getElementById("edit-customer-btn").innerText  == "완료"){
@@ -179,7 +174,6 @@ window.onload = function () {
     document.getElementById('search-btn').addEventListener('click', searchCustomer,false);
     document.getElementById('delete-customer-btn').addEventListener('click', deleteCustomer,false);
     document.getElementById('edit-customer-btn').addEventListener('click', editCustomer,false);
-    // document.getElementById('customer-lists').addEventListener('click', select_customer,false);
    
 
 }
