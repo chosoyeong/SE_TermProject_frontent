@@ -42,13 +42,14 @@ function customerList(id,number,name,birth,phone){
     
 }
 function searchCustomer(){
-    $("#customer-lists").html("");
-    var index=0;
+    
     var name = $("#search-name").val();
     var birth = $("#search-birth").val();
     
-    db.collection("Customer").where("customerName","==",name).where("customerBirth","==",birth).get()
-    .then(function (querySnapshot){
+    db.collection("Customer").where("customerName","==",name).where("customerBirth","==",birth)
+    .onSnapshot(function (querySnapshot){
+        var index=0;
+        $("#customer-lists").html("");
        querySnapshot.forEach(function (doc){
             data = doc.data();
             customerList(doc.ref.id,++index,data["customerName"],data["customerBirth"],data["customerPhoneNo"]);
@@ -56,9 +57,7 @@ function searchCustomer(){
        $("#search-name").val("");
        $("#search-birth").val("");
     })
-    .catch(function(error){
-        alert(error);
-    });
+    
 }
 
 function deleteCustomer(){
@@ -73,6 +72,19 @@ function deleteCustomer(){
     .catch(function(error){
         console.log(error);
     });
+    db.collection("History")
+    .where("customerId","==",customerID)
+    .get()
+    .then((querySnapshot)=>{
+        querySnapshot.forEach(function(doc){
+            doc.ref.delete();
+            console.log("deleted histories of this customer");
+        })
+    })
+    .catch((error)=>{
+        alert(error+" in delete Customer function");
+    })
+    back_to_cus_list();
 }
     
 
@@ -169,12 +181,18 @@ $("#customer-lists").on("click", "tr", function() {
         select_customer(id);
  });
 
+ function back_to_cus_list() {
+    document.getElementById("informatio_form").style="display:none"
+    document.getElementById("search_result").style="display:block"
+}
+
 window.onload = function () {
     document.getElementById('add-customer-btn').addEventListener('click', addCustomer,false);
     document.getElementById('search-btn').addEventListener('click', searchCustomer,false);
     document.getElementById('delete-customer-btn').addEventListener('click', deleteCustomer,false);
     document.getElementById('edit-customer-btn').addEventListener('click', editCustomer,false);
-   
+    document.getElementById('info_prev_btn').addEventListener('click', back_to_cus_list,false);
+    
 
 }
 
