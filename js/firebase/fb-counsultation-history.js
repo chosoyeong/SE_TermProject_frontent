@@ -108,7 +108,7 @@ function allClear(){
 }
 
 $("#customer-lists").on("click", "tr", function() { 
-    
+    $("#history-lists").html("");
     var id = $(this).attr('id');
     customerID = id;
     alert(id);
@@ -126,14 +126,64 @@ $("#customer-lists").on("click", "tr", function() {
      });
 });
 
+function clearConsulting(){
+    $("#txt1").val("");
+    $("#birth").val("");
+    $("#now_date").val("");
+    $("#treatment").prop("checked",false);
+    $("#beauty").prop("checked",false);
+    $("#txt6").val("");
+    $("#txt7").val("");
+    $("#txt8").val("");
+}
+
 $("#history-lists").on("click", "tr", function() { 
     var id = $(this).attr('id');
     alert(id);
+    db.collection("History")
+    .doc(id)
+    .get()
+    .then((docRef)=>{
+        data = docRef.data();
+        $("#txt1").val(data["customerName"]);
+        $("#birth").val(data["customerBirth"]);
+        $("#now_date").val(data["consultationDate"]);
+        $("#treatment").prop("checked",data["type"]["treatment"]);
+        $("#beauty").prop("checked",data["type"]["beauty"]);
+        $("#txt6").val(data["counselor"]);
+        $("#txt7").val(data["title"]);
+        $("#txt8").val(data["content"]);
+    })
+    .catch((error)=>{
+        alert("error in select_customer");
+    })
 });
+function editConsultation() {
+    document.getElementById("edit-consultation-btn").style="display:block"      
 
+        document.getElementById("edit-consultation-btn").background= "blue";
+        var oEle1 = document.getElementById('txt1') ;
+        oEle1.readOnly = false ;
+        var oEle2 = document.getElementById('now_date') ;
+        oEle2.readOnly = false ;
+        var oEle3 = document.getElementById('birth') ;
+        oEle3.readOnly = false ;
+        var oEle4 = document.getElementById('treatment') ;
+        oEle4.onclick=true;
+        var oEle5 = document.getElementById('beauty') ;
+        oEle5.onclick=true;
+        var oEle6 = document.getElementById('txt6') ;
+        oEle6.readOnly = false ;
+        var oEle7 = document.getElementById('txt7') ;
+        oEle7.readOnly = false ;
+        var oEle8 = document.getElementById('txt8') ;
+        oEle8.readOnly = false ;                                 
+                 
+}
 window.onload = function () {
     document.getElementById('add-consultation-btn').addEventListener('click', addConsultation,false);
     document.getElementById('search-btn').addEventListener('click', searchCustomer,false);
+    document.getElementById('edit-consultation-btn').addEventListener('click', editConsultation,false);
 }
 
 var db = firebase.firestore();
