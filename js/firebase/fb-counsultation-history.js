@@ -156,7 +156,7 @@ $("#history-lists").on("click", "tr", function() {
 });
 function editConsultation() {
     document.getElementById("edit-consultation-btn").style="display:block"      
-
+    document.getElementById("complete-btn").style="display:block"
         document.getElementById("edit-consultation-btn").background= "blue";
         var oEle1 = document.getElementById('txt1') ;
         oEle1.readOnly = false ;
@@ -196,6 +196,31 @@ function back_to_list() {
     document.getElementById("history_form").style="display:none"
     document.getElementById("history_list").style="display:block"
 }
+function edit_complete() {
+   
+    db.collection("History")
+        .doc(historyID)
+        .update({
+            customerName: $("#txt1").val(),
+            customerBirth: $("#birth").val(),
+            customerPhone: $("#txt1").val(),
+            consultationDate: $("#now_date").val(),
+            type: {
+                treatment:$("#treatment").is(":checked"),
+                beauty:$("#beauty").is(":checked")
+            },
+            counselor: $("#txt6").val(),
+            title: $("#txt7").val(),
+            content: $("#txt8").val()                  
+        })
+        .then((docRef)=>{
+            alert("succesfully updated");
+        })
+         .catch(function(error){
+            alert(error);
+        });
+    
+}
 
 window.onload = function () {
     document.getElementById('add-consultation-btn').addEventListener('click', addConsultation,false);
@@ -203,6 +228,7 @@ window.onload = function () {
     document.getElementById('edit-consultation-btn').addEventListener('click', editConsultation,false);
     document.getElementById('delete-consultation-btn').addEventListener('click', deleteConsultation,false);
     document.getElementById('show_list_btn').addEventListener('click', back_to_list,false);
+    document.getElementById('complete-btn').addEventListener('click', edit_complete,false);
     
 }
 
