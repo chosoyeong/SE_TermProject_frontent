@@ -382,7 +382,7 @@
                                         <i class="material-icons">more_vert</i>
                                     </a>
                                     <ul class="dropdown-menu pull-right">
-                                        <li><a id="edit-consultation-btn"  onclick="edit_complete()">EDIT</li>
+                                        <li><a id="edit-consultation-btn">EDIT</li>
                                         <li><a id="delete-consultation-btn">DELETE</a></li>
                                     </ul>
                                 </li>
@@ -465,17 +465,11 @@
 
                                 </div>
                           
-                                <button type="submit" class="btn btn-primary waves-effect" id="complete-btn" style="display: none;">EDIT COMPLETED</button>                                
+                                <button type="button" class="btn btn-primary waves-effect" id="complete-btn" style="display: none;">EDIT COMPLETED</button>                                
                                 
                                 <button type="button" class="button2" id="show_list_btn" style="background-color: coral;"  onclick="back_to_list()">SHOW HISTORY LIST</button>
                                 
                             </form>
-
-                            <script>
-                                function edit_complete() {
-                                    document.getElementById("complete-btn").style="display:block"
-                                }
-                            </script>
 
                             <script>
                                 function back_to_list() {
