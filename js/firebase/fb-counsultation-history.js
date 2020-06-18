@@ -66,6 +66,15 @@ function customerList(id,number,name,birth,phone){
     $("#customer-lists").append(tmp_html);
     
 }
+function HistoryList(id,number,title,date){
+    let tmp_html = `<tr id="${id}">\
+        <td>${number}</td>\
+        <td>${title}</td>\
+        <td>${date}</td>\
+    </tr>`;
+    $("#history-lists").append(tmp_html);
+    
+}
 function searchCustomer(){
     $("#customer-lists").html("");
     var index=0;
@@ -103,7 +112,23 @@ $("#customer-lists").on("click", "tr", function() {
     var id = $(this).attr('id');
     customerID = id;
     alert(id);
-    select_customer(id);
+    db.collection("History").where("customerId","==",id).get()
+    .then(function (querySnapshot){
+        var index=0;
+        querySnapshot.forEach(function (doc){
+             data = doc.data();
+             HistoryList(doc.ref.id,++index,data["title"],data["consultationDate"]);
+        })
+
+     })
+     .catch(function(error){
+         alert(error);
+     });
+});
+
+$("#history-lists").on("click", "tr", function() { 
+    var id = $(this).attr('id');
+    alert(id);
 });
 
 window.onload = function () {
