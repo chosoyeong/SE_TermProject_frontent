@@ -19,18 +19,7 @@ function addConsultation(evt){
     .get()
     .then(function (querySnapshot){
        querySnapshot.forEach(function (doc){
-            // data = doc.data();
-            // var consultingVal = Number(data["consulting"]);
             
-            // doc.update({
-            //     consulting:consultingVal   
-            // })
-            // .then(()=>{
-            //     alert("consultingVal Added");
-            // })
-            // .catch((error)=>{
-            //     alert(error+" error in consultingVal Added");
-            // })
             var postData={
                 customerName: customerName.value,
                 customerBirth: customerBirth.value,
@@ -229,7 +218,6 @@ function deleteConsultation(){
     .get()
     .then((docRef)=>{
         var consultingVal = Number(docRef.data()['consulting']);
-        alert(consultingVal);
         consultingVal = consultingVal - 1;
         db.collection("Customer")
         .doc(customerID)
