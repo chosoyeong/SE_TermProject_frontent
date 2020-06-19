@@ -19,7 +19,7 @@ function addConsultation(evt){
     .get()
     .then(function (querySnapshot){
        querySnapshot.forEach(function (doc){
-            data = doc.data();
+            
             var postData={
                 customerName: customerName.value,
                 customerBirth: customerBirth.value,
@@ -34,7 +34,30 @@ function addConsultation(evt){
                 title: title.value,
                 content: content.value
             };
-        
+            //고객기록 히스토리 값 오려주기
+            db.collection("Customer")
+            .doc(doc.ref.id)
+            .get()
+            .then((docRef)=>{
+                var consultingVal = Number(docRef.data()['consulting']);
+                consultingVal = consultingVal + 1;
+                db.collection("Customer")
+                .doc(doc.ref.id)
+                .update({
+                    consulting:consultingVal
+                })
+                .then(()=>{
+                    console.log("consulting history added in customer information");
+                })
+                .catch((error)=>{
+                    alert(error+"added History Number");
+                })
+
+            })
+            .catch((error)=>{
+                alert(error);
+            });
+
             db.collection("History")
             .add(postData)
             .then(function(docRef) {
@@ -49,7 +72,7 @@ function addConsultation(evt){
         })
     })
     .catch(function(error){
-        alert("error");
+        alert(error);
     });
     
 
@@ -178,6 +201,7 @@ function editConsultation() {
 }
 
 function deleteConsultation(){
+    
     db.collection("History")
     .doc(historyID)
     .delete()
@@ -187,7 +211,31 @@ function deleteConsultation(){
     })
     .catch(function(error){
         console.log(error);
+    }); 
+
+    db.collection("Customer")
+    .doc(customerID)
+    .get()
+    .then((docRef)=>{
+        var consultingVal = Number(docRef.data()['consulting']);
+        consultingVal = consultingVal - 1;
+        db.collection("Customer")
+        .doc(customerID)
+        .update({
+            consulting:consultingVal
+        })
+        .then(()=>{
+            console.log("consulting history deleted from customer information");
+        })
+        .catch((error)=>{
+            alert(error+"delete History Number");
+        })
+
+    })
+    .catch((error)=>{
+        alert(error);
     });
+
     clearConsulting();
     back_to_list();
 }
