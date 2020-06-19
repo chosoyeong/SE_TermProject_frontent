@@ -5056,11 +5056,6 @@ section.content {
     bottom: 25px;
     left: 0;
     font-size: 12px; }
-    .input-group .form-line.focused .form-label2 {
-      bottom: 0px;
-      left: 0;
-      font-size: 12px; }
-
   .input-group .input-group-addon {
     border: none;
     background-color: transparent;
@@ -8122,7 +8117,7 @@ fieldset[disabled] .form-control {
       white-space: nowrap;
       position: relative;
     }
-    .container-4 input#search{
+    .container-4 .cus_search{
       width: 250px;
       height: 50px;
       background: #B2CCFF;
@@ -8143,13 +8138,13 @@ fieldset[disabled] .form-control {
     }
     
     
-    .container-4 input#search:hover, .container-4 input#search:focus, .container-4 input#search:active{
+    .container-4 .cus_search:hover, .container-4 .cus_search:focus, .container-4 .cus_search:active{
         outline:none;
         background: #FFD8D8;
       }
     
     
-    .container-4 input#button{
+    .container-4 .search_btn{
       width: 60px;
       height: 35px;
       background: #B2CCFF;
@@ -8175,28 +8170,27 @@ fieldset[disabled] .form-control {
     }
     
     
-    .container-4 input#button{
+    .container-4 .search_btn{
        background:linear-gradient(to bottom, #72b352 5%, #77b55a 100%);
        background-color:#72b352;
     }
     
-    .container-4 input#button{
+    .container-4 .search_btn{
        position:relative;
        top:1px;
     }
     
-    .container-4 input#button:hover, .container-4 input#button:focus{
+    .container-4 .search_btn:hover, .container-4 .search_btn:focus{
         outline:none;
         background: #22741C;
     }
     
-    .container-4 input#button:active { 
+    .container-4 .search_btn:active { 
        position: relative; 
        top: 2px; 
        margin-bottom: 2px; 
        box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.42); 
     }
-
 
     .button_design{
       margin-top: 50px;

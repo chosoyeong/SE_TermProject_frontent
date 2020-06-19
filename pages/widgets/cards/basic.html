@@ -69,7 +69,7 @@
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="../../../index.html">GACHON ESTETIC CRM SYSTEM </a>
+                <a class="navbar-brand" href="../../../index.html">GACHON ESTETIC CRM SYSTEM</a>
             </div>
         </div>
     </nav>
@@ -265,9 +265,9 @@
                                     <fieldset>
                                         <table>
                                             <tr>
-                                                <td><input type="search" id="search-name" placeholder="이름" ></td>
-                                                <td  style="padding-left:15px"><input type="date" id="search-birth" placeholder="생년월일" ></td>
-                                                <td  style="padding-left:15px" rowspan="2"><input type="button" id="search-btn" value="search" onclick="const_search()"></td>
+                                                <td><input class="cus_search" type="search" id="search-name" placeholder="이름" ></td>
+                                                <td  style="padding-left:15px"><input class="cus_search" type="date" id="search-birth" placeholder="생년월일" ></td>
+                                                <td  style="padding-left:15px" rowspan="2"><input class="search_btn" type="button" id="search-btn" value="search" onclick="const_search()"></td>
                                             </tr>
                                         </table>
                                     </fieldset>
@@ -376,7 +376,7 @@
                                         <i class="material-icons">more_vert</i>
                                     </a>
                                     <ul class="dropdown-menu pull-right">
-                                        <li><a id="edit-consultation-btn">EDIT</li>
+                                        <li><a id="edit-consultation-btn"  onclick="edit_complete()">EDIT</li>
                                         <li><a id="delete-consultation-btn">DELETE</a></li>
                                     </ul>
                                 </li>
@@ -464,6 +464,12 @@
                                 <button type="button" class="button2" id="show_list_btn" style="background-color: coral;"  onclick="back_to_list()">SHOW HISTORY LIST</button>
                                 
                             </form>
+
+                            <script>
+                                function edit_complete() {
+                                    document.getElementById("complete-btn").style="display:block"
+                                }
+                            </script>
 
                             <script>
                                 function back_to_list() {
