@@ -139,7 +139,7 @@
             opacity: 0.9;
         }
 
-    #cancel {
+    .reservation_form {
         width: 127px;
         height: 48px;
         text-align: center;
@@ -148,7 +148,7 @@
         cursor: pointer;
     }
 
-        #cancel:hover {
+    .reservation_form:hover {
             color: #fff;
             background-color: #216282;
             opacity: 0.9;
@@ -484,8 +484,8 @@
                 <label></label>
                 <input type="text" id="Doctor_edit" name="Doctor" placeholder="Doctor" required="required">
                 <label></label>
-                <input type="button" id="cancel_edit" data-dismiss="modal" value="취소">
-                <input type="submit" id="submit_edit" onclick="addSchedule()" value="저장하기">
+                <input type="button" class="reservation_form" id="cancel_edit" data-dismiss="modal" value="수정하기">
+                <input type="submit" class="reservation_form" id="submit_edit" onclick="addSchedule()" value="삭제하기">
             </form>
         </div>
         </div>
@@ -515,8 +515,8 @@
               <label></label>
               <input type="text" id="Doctor" name="Doctor" placeholder="Doctor" required="required">
               <label></label>
-              <input type="button" id="cancel" data-dismiss="modal" value="취소">
-              <input type="submit" id="submit" onclick="addSchedule()" value="저장하기">
+              <input type="button" class="reservation_form" id="cancel" data-dismiss="modal" value="취소">
+              <input type="submit" class="reservation_form" id="submit" onclick="addSchedule()" value="저장하기">
           </form>
       </div>
       </div>
