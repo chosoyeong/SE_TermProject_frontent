@@ -27,6 +27,8 @@
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="../css/themes/all-themes.css" rel="stylesheet" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
 </head>
 
 <body class="theme-red">
@@ -215,13 +217,21 @@
                                 <tr>
                                     <td><input class="cus_search" type="search" id="search-name" placeholder="이름" ></td>
                                     <td  style="padding-left:15px"><input class="cus_search" type="date" id="search-birth" placeholder="생년월일" ></td>
-                                    <td  style="padding-left:15px" rowspan="2"><input class="search_btn" type="button" id="search-btn" value="search" onclick="search()"></td>
+                                    <td  style="padding-left:15px" rowspan="2"><input class="search_btn" type="button" style="text-align: center;" id="search-btn" value="search" onclick="search()"></td>
                                 </tr>
                             </table>
                         </fieldset>
                     </form>
                 </div>
             </div>        
+
+
+            <div style="font-family: 'Do Hyeon', sans-serif;" text>
+
+                <p>고객 이름과 생년월일을 검색해주세요!</p>
+
+            </div>
+
 
             <script>
                 function search() {
@@ -262,7 +272,7 @@
                         <div class="body">
 
                             <div>
-                                <button type="button"style="form-line:right"  class="button" id="info_prev_btn" style="border-radius: 5px;" style="background-color:white" >BACK</button>
+                                <button type="button" class="button" id="info_prev_btn" style="border-radius: 5px;" style="background-color:white" >BACK</button>
 
                                 <ul class="nav nav-tabs" role="tablist">
                                     <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Profile</a></li>
