@@ -8,7 +8,8 @@
   height: 100px;
 }
 .navbar {
-  font-family: 'Do Hyeon', sans-serif;
+  font-family: 'Nanum Gothic Coding', monospace;
+  font-family: 'Noto Serif KR', serif;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
@@ -40,8 +41,8 @@
     margin-right: 17px; }
     .navbar .navbar-toggle:before {
       content: '\E8D5';
-      font-family: 'Do Hyeon', sans-serif;
-      font-size: 26px; }
+      font-family: 'Nanum Gothic Coding', monospace;
+      font-family: 'Noto Serif KR', serif;      font-size: 26px; }
   .navbar .navbar-collapse.in {
     overflow: visible; }
 
@@ -53,8 +54,9 @@
 
 
 .ls-closed .bars:after, .ls-closed .bars:before {
-  font-family: 'Do Hyeon', sans-serif;  
-  font-size: 23px;
+  font-family: 'Nanum Gothic Coding', monospace;
+  font-family: 'Noto Serif KR', serif;
+    font-size: 23px;
   position: absolute;
   top: 18px;
   left: 20px;
@@ -2263,7 +2265,8 @@
     .demo-choose-skin li.active {
       background-color: #eee; }
       .demo-choose-skin li.active:after {
-        font-family: 'Do Hyeon', sans-serif;
+        font-family: 'Nanum Gothic Coding', monospace;
+        font-family: 'Noto Serif KR', serif;
         position: absolute;
         top: 10px;
         right: 10px;
@@ -2376,7 +2379,8 @@ body {
   -o-transition: all 0.5s;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
-  font-family: 'Do Hyeon', sans-serif; }
+  font-family: 'Nanum Gothic Coding', monospace;
+font-family: 'Noto Serif KR', serif; }
 
 h1,
 h2,
@@ -4108,7 +4112,8 @@ section.content {
     position: relative; }
     .bootstrap-select .bs-searchbox:after {
       content: '\E8B6';
-      font-family: 'Do Hyeon', sans-serif;
+      font-family: 'Nanum Gothic Coding', monospace;
+      font-family: 'Noto Serif KR', serif;
       position: absolute;
       top: 0;
       left: 10px;
@@ -6692,7 +6697,10 @@ fieldset[disabled] .form-control {
 
 /* Navbars ===================================== */
 .navbar {
-  font-family: 'Do Hyeon', sans-serif;  -webkit-border-radius: 0;
+  font-family: 'Nanum Gothic Coding', monospace;
+  font-family: 'Noto Serif KR', serif;
+
+  -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
   border-radius: 0;
@@ -6723,8 +6731,9 @@ fieldset[disabled] .form-control {
     margin-right: 17px; }
     .navbar .navbar-toggle:before {
       content: '\E8D5';
-      font-family: 'Do Hyeon', sans-serif;
-            font-size: 26px; }
+      font-family: 'Nanum Gothic Coding', monospace;
+      font-family: 'Noto Serif KR', serif;
+                  font-size: 26px; }
   .navbar .navbar-collapse.in {
     overflow: visible; }
 
@@ -6735,8 +6744,9 @@ fieldset[disabled] .form-control {
   margin-left: 15px; }
 
 .ls-closed .bars:after, .ls-closed .bars:before {
-  font-family: 'Do Hyeon', sans-serif;
-    font-size: 24px;
+  font-family: 'Nanum Gothic Coding', monospace;
+  font-family: 'Noto Serif KR', serif;
+      font-size: 24px;
   position: absolute;
   top: 18px;
   left: 20px;
@@ -7525,7 +7535,8 @@ fieldset[disabled] .form-control {
   -o-transition: all 0.5s;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
-  font-family: 'Do Hyeon', sans-serif;
+  font-family: 'Nanum Gothic Coding', monospace;
+font-family: 'Noto Serif KR', serif;
   background: #fdfdfd;
   width: 300px;
   overflow: hidden;
@@ -7705,7 +7716,8 @@ fieldset[disabled] .form-control {
           margin-left: 5px; }
           .sidebar .menu .list .ml-menu li.active a.toggled:not(.menu-toggle):before {
             content: '\E315';
-            font-family: 'Do Hyeon', sans-serif;
+            font-family: 'Nanum Gothic Coding', monospace;
+            font-family: 'Noto Serif KR', serif;
             position: relative;
             font-size: 21px;
             height: 20px;
@@ -8153,7 +8165,8 @@ fieldset[disabled] .form-control {
       color: #ffffff;
       box-shadow: 0px 10px 14px -7px #3e7327;
       border-radius:4px;
-      font-family: 'Do Hyeon', sans-serif;
+      font-family: 'Nanum Gothic Coding', monospace;
+      font-family: 'Noto Serif KR', serif;
       font-size:13px;
       font-weight:bold;
       text-decoration:none;
@@ -8205,7 +8218,8 @@ fieldset[disabled] .form-control {
       color: #ffffff;
       box-shadow: 0px 10px 14px -7px #8f789c;
       border-radius:4px;
-      font-family: 'Do Hyeon', sans-serif;
+      font-family: 'Nanum Gothic Coding', monospace;
+      font-family: 'Noto Serif KR', serif;
       font-size:13px;
       font-weight:bold;
       text-decoration:none;
