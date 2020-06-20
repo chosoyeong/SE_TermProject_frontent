@@ -15,8 +15,6 @@ function getSchedules() {
             });
 
             events = calendar.getEvents();
-
-            console.log(events);
         });
     });
 }
@@ -57,7 +55,6 @@ function editSchedule(id) {
             "time": time,
             "state": "",
         }).then(function () {
-            console.log("OK");
             window.location.reload();
         });
     }

@@ -39,64 +39,54 @@
         var events;
         var scheduleId;
 
-        document.addEventListener('DOMContentLoaded', function() {
-          var calendarEl = document.getElementById('calendar');
-  
-          calendar = new FullCalendar.Calendar(calendarEl, {
-            plugins: [ 'dayGrid' ,'interaction'],
-            dateClick: function(info) {
-                $('#exampleModalCenter').modal('show');          
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
 
-                clicked_date=info.dateStr
-                addEventListener.call(date_to_form())  
-            },
-            eventClick: function(info){
-                $('#edit_reservation').modal('show');   
+            calendar = new FullCalendar.Calendar(calendarEl, {
+                plugins: ['dayGrid', 'interaction'],
+                dateClick: function (info) {
+                    $('#exampleModalCenter').modal('show');
 
-                scheduleId = info.event._def["publicId"];
-                var data = info.event._def["title"].split("\n");
+                    document.getElementById("Date").value = info.dateStr;
+                },
+                eventClick: function (info) {
+                    $('#edit_reservation').modal('show');
 
-                function date_to_str(format) {
-                    var year = format.getFullYear();
-                    var month = format.getMonth() + 1;
-                    if(month<10) month = '0' + month;
-                    var date = format.getDate();
-                    if(date<10) date = '0' + date;
-                    var hour = format.getHours();
-                    if(hour<10) hour = '0' + hour;
-                    var min = format.getMinutes();
-                    if(min<10) min = '0' + min;
+                    scheduleId = info.event._def["publicId"];
+                    var data = info.event._def["title"].split("\n");
 
-                    return year + "-" + month + "-" + date;
+                    function date_to_str(format) {
+                        var year = format.getFullYear();
+                        var month = format.getMonth() + 1;
+                        if (month < 10) month = '0' + month;
+                        var date = format.getDate();
+                        if (date < 10) date = '0' + date;
+                        var hour = format.getHours();
+                        if (hour < 10) hour = '0' + hour;
+                        var min = format.getMinutes();
+                        if (min < 10) min = '0' + min;
+
+                        return year + "-" + month + "-" + date;
+                    }
+
+                    document.getElementById("Name_edit").value = data[0];
+                    document.getElementById("Date_edit").value = date_to_str(info.event.start);
+                    document.getElementById("Time_edit").value = data[2].substring(6, data[2].len);
+                    document.getElementById("Doctor_edit").value = data[1].substring(4, data[1].len);
                 }
+            });
 
-                document.getElementById("Name_edit").value = data[0];
-                document.getElementById("Date_edit").value = date_to_str(info.event.start);
-                document.getElementById("Time_edit").value = data[2].substring(6, data[2].len);
-                document.getElementById("Doctor_edit").value = data[1].substring(4, data[1].len);
-            }
-          });
-  
-          calendar.render();
+            calendar.render();
 
-          calendar.on('dateClick', function(info){
-            console.log('clicked on',info.dateStr)
-        })
-  
-        calendar.on('eventClick', function(info){
-            console.log("clicked on event", info.dateStr)
-        })
+            calendar.on('dateClick', function (info) {
+                console.log('clicked on', info.dateStr)
+            })
+
+            calendar.on('eventClick', function (info) {
+                console.log("clicked on event", info.dateStr)
+            })
         });
-      </script>
-
-        <script>
-            function date_to_form() {                
-                document.getElementById('Date').value=clicked_date 
-
-            }
-        </script> 
-      </script>
-        </script> 
+    </script>
 
 </head>
 <style type="text/css">
@@ -170,7 +160,7 @@
         cursor: pointer;
     }
 
-    .reservation_form:hover {
+        .reservation_form:hover {
             color: #fff;
             background-color: #216282;
             opacity: 0.9;
@@ -189,8 +179,6 @@
         .close-button:hover {
             background-color: darkgray;
         }
-
-
 </style>
 
 <body class="theme-red">
@@ -241,11 +229,11 @@
         <aside id="leftsidebar" class="sidebar">
             <!-- User Info -->
             <div class="user-info">
-              
+
                 <div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe</div>
                     <div class="email">john.doe@example.com</div>
-                    
+
                 </div>
             </div>
             <!-- #User Info -->
@@ -260,7 +248,7 @@
                         </a>
                     </li>
 
-        
+
                     <li>
                         <a href="../../../pages/helper-classes.html">
                             <i class="material-icons">layers</i>
@@ -450,11 +438,11 @@
                 <div class="container-4">
                     <form>
                         <fieldset>
-                            <table>                    
+                            <table>
                                 <tr>
-                                    <td><input class="cus_search" type="search" id="search" placeholder="이름" ></td>
-                                    <td  style="padding-left:15px"><input class="cus_search" type="date" id="search" placeholder="생년월일" ></td>
-                                    <td  style="padding-left:15px" rowspan="2"><input class="search_btn" type="button" id="button" value="search"></td>
+                                    <td><input class="cus_search" type="search" id="search" placeholder="이름"></td>
+                                    <td style="padding-left:15px"><input class="cus_search" type="date" id="search" placeholder="생년월일"></td>
+                                    <td style="padding-left:15px" rowspan="2"><input class="search_btn" type="button" id="button" value="search"></td>
                                 </tr>
                             </table>
                         </fieldset>
@@ -462,69 +450,69 @@
                 </div>
             </div>
 
-            
-          <!-- edit_reservatio form -->
-          <div class="modal fade" id="edit_reservation" tabindex="-1" role="dialog" aria-labelledby="edit_reservation" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">예약 변경</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+
+            <!-- edit_reservatio form -->
+            <div class="modal fade" id="edit_reservation" tabindex="-1" role="dialog" aria-labelledby="edit_reservation" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">예약 변경</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <div class="modal-body">
+                            <form name="Schedule" method="POST" target="temp">
+
+                                <input type="text" id="Name_edit" name="Name" placeholder="Name" required="required" readonly>
+                                <label></label>
+                                <input type="date" id="Date_edit" name="Date" placeholder="Date" required="required">
+                                <label></label>
+                                <input type="time" id="Time_edit" name="Time" placeholder="Time" required="required">
+                                <label></label>
+                                <input type="text" id="Doctor_edit" name="Doctor" placeholder="Doctor" required="required">
+                                <label></label>
+
+
+                                <input type="button" class="reservation_form" id="cancel_edit" data-dismiss="modal" onclick="deleteSchedule(scheduleId)" value="삭제하기">
+                                <input type="submit" class="reservation_form" id="submit_edit" onclick="editSchedule(scheduleId)" value="수정하기">
+                            </form>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="modal-body">
-            <form name="Schedule" method="POST" target="temp">
-
-                <input type="text" id="Name_edit" name="Name" placeholder="Name" required="required" readonly>
-                <label></label>
-                <input type="date" id="Date_edit" name="Date" placeholder="Date" required="required">
-                <label></label>
-                <input type="time" id="Time_edit" name="Time" placeholder="Time" required="required">
-                <label></label>
-                <input type="text" id="Doctor_edit" name="Doctor" placeholder="Doctor" required="required">
-                <label></label>
+            </div>
 
 
-                <input type="button" class="reservation_form" id="cancel_edit" data-dismiss="modal" onclick="deleteSchedule(scheduleId)" value="삭제하기">
-                <input type="submit" class="reservation_form" id="submit_edit" onclick="editSchedule(scheduleId)" value="수정하기">
-            </form>
-        </div>
-        </div>
-           </div>
-        </div>
 
- 
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">예약 추가</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form name="Schedule" method="POST" target="temp">
 
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-              <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">예약 추가</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-              </button>
-              </div>
-              <div class="modal-body">
-          <form name="Schedule" method="POST" target="temp">
-
-              <input type="text" id="Name" name="Name" placeholder="Name" required="required">
-              <label></label>
-              <input type="date" id="Date" name="Date" placeholder="Date" required="required">
-              <label></label>
-              <input type="time" id="Time" name="Time" placeholder="Time" required="required">
-              <label></label>
-              <input type="text" id="Doctor" name="Doctor" placeholder="Doctor" required="required">
-              <label></label>
-              <input type="button" class="reservation_form" id="cancel" data-dismiss="modal" value="취소">
-              <input type="submit" class="reservation_form" id="submit" onclick="addSchedule()" value="저장하기">
-          </form>
-      </div>
-      </div>
-         </div>
-      </div>
+                                <input type="text" id="Name" name="Name" placeholder="Name" required="required">
+                                <label></label>
+                                <input type="date" id="Date" name="Date" placeholder="Date" required="required">
+                                <label></label>
+                                <input type="time" id="Time" name="Time" placeholder="Time" required="required">
+                                <label></label>
+                                <input type="text" id="Doctor" name="Doctor" placeholder="Doctor" required="required">
+                                <label></label>
+                                <input type="button" class="reservation_form" id="cancel" data-dismiss="modal" value="취소">
+                                <input type="submit" class="reservation_form" id="submit" onclick="addSchedule()" value="저장하기">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
             <div id='calendar'>

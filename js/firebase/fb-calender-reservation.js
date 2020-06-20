@@ -4,25 +4,25 @@ const $bookingStatus = document.querySelector('.main-cal-booking-tbody');
 /**
  * initApp handles setting up UI event listeners
  */
-function addBooking(number,name,status,doc,time) {
-    
+function addBooking(number, name, doc, time, date) {
+    var now = new Date();
+    var schTime = new Date(date + " " + time);
+    var gap = now.getTime() - schTime.getTime();
+
+    var status;
     var color;
-    switch(status){
-        case "Time over":
-            color = "red";
-            break;
-        case "complete":
-            color = "blue";
-            break;
-        case "progressing":
-            color="green";
-            break;
-        case "not yet":
-            color="orange";
-            break;
-        default:
-            break;
+
+    if (gap > 0) {
+        color = "blue";
+        status = "완료";
+    } else if (gap/1000/60 >= -30) {
+        color = "green"
+        status = "진행중";
+    } else {
+        color = "orange";
+        status = "예정";
     }
+
     let tmp_html = `<tr>\
             <td>${number}</td>\
             <td>${name}</td>\
@@ -41,8 +41,8 @@ function reloadTodo(date){
     db.collection("Reservation").where("date", "==", date).orderBy("time").get().then(function (querySnapshot) {
         querySnapshot.forEach(function (doc) {
             fieldData = doc.data();
-            console.log(fieldData);
-            addBooking(++index, fieldData["patientName"], fieldData["state"], fieldData["docName"], fieldData["time"]);
+            //console.log(fieldData);
+            addBooking(++index, fieldData["patientName"], fieldData["docName"], fieldData["time"], date);
         });
     }).catch(function (error) {
         console.log("Error getting documents: ", error);
