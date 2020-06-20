@@ -8112,6 +8112,15 @@ font-family: 'Noto Serif KR', serif;
     font-size: 16px;
     padding: 25px 60px 23px 56px;
     border: none; }
+
+  .font_info_consult{
+    font-size:large;
+    text-align: center;
+    font-size: x-large;
+    font-family: 'Sunflower', sans-serif;
+  }
+
+
     .box2{
       width: 120px auto;
       height: 40px;
