@@ -36,6 +36,8 @@
 
     <script>
         var calendar;
+        var events;
+        var scheduleId;
 
         document.addEventListener('DOMContentLoaded', function() {
           var calendarEl = document.getElementById('calendar');
@@ -50,8 +52,28 @@
             },
             eventClick: function(info){
                 $('#edit_reservation').modal('show');   
-  
 
+                scheduleId = info.event._def["publicId"];
+                var data = info.event._def["title"].split("\n");
+
+                function date_to_str(format) {
+                    var year = format.getFullYear();
+                    var month = format.getMonth() + 1;
+                    if(month<10) month = '0' + month;
+                    var date = format.getDate();
+                    if(date<10) date = '0' + date;
+                    var hour = format.getHours();
+                    if(hour<10) hour = '0' + hour;
+                    var min = format.getMinutes();
+                    if(min<10) min = '0' + min;
+
+                    return year + "-" + month + "-" + date;
+                }
+
+                document.getElementById("Name_edit").value = data[0];
+                document.getElementById("Date_edit").value = date_to_str(info.event.start);
+                document.getElementById("Time_edit").value = data[2].substring(6, data[2].len);
+                document.getElementById("Doctor_edit").value = data[1].substring(4, data[1].len);
             }
           });
   
@@ -465,8 +487,8 @@
                 <label></label>
 
 
-                <input type="button" class="reservation_form" id="cancel_edit" data-dismiss="modal" value="수정하기">
-                <input type="submit" class="reservation_form" id="submit_edit" onclick="addSchedule()" value="삭제하기">
+                <input type="button" class="reservation_form" id="cancel_edit" data-dismiss="modal" onclick="deleteSchedule(scheduleId)" value="삭제하기">
+                <input type="submit" class="reservation_form" id="submit_edit" onclick="editSchedule(scheduleId)" value="수정하기">
             </form>
         </div>
         </div>
@@ -540,7 +562,6 @@
     <script src='https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js'></script>
     <script src='https://www.gstatic.com/firebasejs/7.15.0/firebase-analytics.js'></script>
     <script src='https://www.gstatic.com/firebasejs/7.15.0/firebase-auth.js'></script>
-    <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-firestore.js"></script>
     <script src="../../../js/firebase/fb-init.js"></script>
     <script src="../../../js/firebase/fb-main-user.js"></script>
