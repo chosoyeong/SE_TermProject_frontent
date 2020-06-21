@@ -245,7 +245,7 @@ function back_to_list() {
     document.getElementById("history_list").style="display:block"
 }
 function edit_complete() {
-   
+    document.getElementById("complete-btn").style="display:block"
     db.collection("History")
         .doc(historyID)
         .update({
