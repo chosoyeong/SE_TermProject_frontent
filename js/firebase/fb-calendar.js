@@ -3,8 +3,7 @@ function getSchedules() {
 
     db.collection("Reservation").orderBy("time").get().then(function (querySnapshot) {
         querySnapshot.forEach(function (doc) {
-
-            //console.log(doc.id, "=>", doc.data());
+			scheduleDBData.push(doc.data());
 
             calendar.addEvent({
                 'title': doc.data()["patientName"] + "\n Dr." + doc.data()["docName"] + "\n Time:" + doc.data()["time"],
@@ -67,7 +66,34 @@ function deleteSchedule(id) {
     });
 }
 
-var db = firebase.firestore();
+function filterEvent(drName){
+	if(!isfilted){
+		calendar.removeAllEvents();
+		for(value of events){
 
+			var data = value._def["title"].split("\n");
+			docName = data[1].substring(4, data[1].len);
+
+			if(docName == drName) {
+			calendar.addEvent(value);
+			}
+		}
+		isfilted = true;
+	}
+	else {
+		calendar.removeAllEvents();
+
+		for(value of events){
+			calendar.addEvent(value);
+		}
+
+		isfilted = false;
+	}
+}
+
+var db = firebase.firestore();
+var scheduleDBData = new Array();
 var schedules = new Array();
 getSchedules();
+
+var isfilted = false;

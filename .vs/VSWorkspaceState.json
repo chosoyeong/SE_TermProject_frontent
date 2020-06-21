@@ -2,7 +2,6 @@
   "ExpandedNodes": [
     "",
     "\\js",
-    "\\js\\firebase",
     "\\js\\pages",
     "\\js\\pages\\cards",
     "\\pages",
@@ -12,6 +11,6 @@
     "\\plugins",
     "\\plugins\\jquery"
   ],
-  "SelectedNode": "\\js\\firebase\\fb-calender-reservation.js",
+  "SelectedNode": "\\js\\firebase\\fb-signup.js",
   "PreviewInSolutionExplorer": false
 }
