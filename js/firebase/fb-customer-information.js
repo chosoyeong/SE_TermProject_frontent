@@ -107,14 +107,23 @@ function editCustomer() {
         oEle7.readOnly = true ;
         var oEle8 = document.getElementById('txt8') ;
         oEle8.readOnly = true ;
-
+        
+        var sell = Number($("#txt4").val());
+        var level = "SILVER";
+        if(sell>=1000000&&sell<5000000){
+            level="GOLD"
+        }else if(sell>=5000000&&sell<10000000){
+            level="VIP"
+        }else if(sell>=10000000){
+            level="VVIP"
+        }
         db.collection("Customer")
         .doc(customerID)
         .set({
             customerName: $('#txt1').val(),
             customerBirth: $('#txt2').val(),
             customerPhoneNo:$('#txt3').val(),
-            level:"SILVER",
+            level:level,
             sell:$('#txt4').val(),
             reservation:$('#txt5').val(),
             consulting:$('#txt6').val(),
@@ -127,6 +136,25 @@ function editCustomer() {
          .catch(function(error){
             alert(error);
         });
+
+        db.collection("Customer")
+        .doc(customerID)
+        .get()
+        .then((docRef)=>{
+                data = docRef.data();
+                $("#txt1").val(data["customerName"]);
+                $("#txt2").val(data["customerBirth"]);
+                $("#txt3").val(data["customerPhoneNo"]);
+                $("#txt4").val(data["sell"]);
+                $("#txt5").val(data["reservation"]);
+                $("#txt6").val(data["consulting"]);
+                $("#txt7").val(data["points"]);
+                $("#txt8").val(data["coupons"]);
+                $("#level").text(data["level"]);
+        })
+        .catch((error)=>{
+            alert("error in select_customer");
+    })
   
     }
     else if( document.getElementById("edit-customer-btn").innerText  == "EDIT"){
@@ -150,6 +178,8 @@ function editCustomer() {
         var oEle8 = document.getElementById('txt8') ;
         oEle8.readOnly = false ;
 
+        
+
     }
 }
 function select_customer(id) {
@@ -166,6 +196,7 @@ function select_customer(id) {
             $("#txt6").val(data["consulting"]);
             $("#txt7").val(data["points"]);
             $("#txt8").val(data["coupons"]);
+            $("#level").text(data["level"]);
        })
     .catch((error)=>{
         alert("error in select_customer");
