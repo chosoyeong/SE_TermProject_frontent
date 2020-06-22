@@ -6,7 +6,7 @@ function handleSignOut(){
 		// LOGOUT
 		firebase.auth().signOut().then(function(){
 			alert("Sign out");
-			location.reload(); // Page reload
+            window.location = "sign-in.html" // Page reload
 		});
 	}
 }
@@ -28,18 +28,19 @@ function initApp() {
 			var providerData = user.providerData;
 
 			// Alert message when logged in
-			alert("email: " + email + "uid: " + uid);
+			//alert("email: " + email + "uid: " + uid);
 
-			document.getElementById('user-email').innerHTML = email;
-			document.getElementById('user-name').innerHTML = displayName;
+			document.getElementById('user-email_').innerHTML = email;
+			document.getElementById('user-name_').innerHTML = displayName;
 		} else {
 			// User is signed out.
-			alert("No User");
-			//window.location = "pages/examples/sign-in.html" // If not sign-in, redirect
+			//alert("No User");
+			window.location = "sign-in.html" // If not sign-in, redirect
 		}
-	});
+    });
+
+    console.log("init");
+    document.getElementById('SIGNOUT').addEventListener('click', handleSignOut, false);
 }
 
-window.onload = function () {
-	initApp();
-};
+initApp();

@@ -25,7 +25,8 @@ function handleSignUp() {
 	
 	if(firebase.auth().currentUser){
 		// LOGOUT
-		firebase.auth().signOut();
+        firebase.auth().signOut();
+        console.log("current user sign out.");
 	}
 
 	// Sign in with email and pass.
@@ -40,14 +41,16 @@ function handleSignUp() {
 			alert(errorMessage);
 		}
 		console.log(error);
-	}).then(function(data){ // Init userprofile
+    }).then(function (data) { // Init userprofile
+        console.log("create auth");
+
 		data.user.updateProfile({
 			displayName: name
 		}).then(function() {
 			// Update successful
             console.log("User update Success.");
             firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
-			window.location = "../../index.html";
+			window.location = "index.html";
 		}).catch(function(error) {
 			// Error happened
 			alert(error);
@@ -66,7 +69,7 @@ function initApp() {
 	});
 
 	// Other init
-	document.getElementById('sign-up').addEventListener('click', handleSignUp, false);
+    document.getElementById('sign-up').addEventListener('click', handleSignUp, false);
 }
 
 window.onload = function () {

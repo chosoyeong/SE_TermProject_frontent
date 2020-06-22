@@ -227,7 +227,5 @@ window.onload = function () {
 
 }
 
-    
-
-
+   
 var db = firebase.firestore();
