@@ -1,5 +1,7 @@
 /** * 
  * @file fb-calendar.js 
+ * @author Heejin Ryu
+ * @version 1.0
  * this file is to manage cutomer information
  * */
 
@@ -11,9 +13,12 @@ const customerName = document.getElementById('name');
 const customerBirth = document.getElementById('birth');
 const customerPhoneNo = document.getElementById('contact-number');
 const defaultval = 0;
+
 /**
- * addCustomer adds customer
- *  @params evt {string} customer event
+ * addCustomer(evt)
+ * @param {Event} evt
+ * set customer information in the customer db
+ * and get alert successfully added. 
  */
 function addCustomer(evt){
     evt.preventDefault();
@@ -41,6 +46,17 @@ function addCustomer(evt){
     $("#birth").val("");
     $("#contact-number").val("");
 }
+
+/**
+ * customerList
+ * @param {any} id 
+ * @param {number} number 
+ * @param {string} name 
+ * @param {date} birth 
+ * @param {phone} phone
+ * add customer list dynamically in web site 
+ * according to the customer is added,deleted. 
+ */
 function customerList(id,number,name,birth,phone){
     let tmp_html = `<tr id="${id}" class="tdcls">\
         <td>${number}</td>\
@@ -52,6 +68,13 @@ function customerList(id,number,name,birth,phone){
     $("#customer-lists").append(tmp_html);
     
 }
+
+/**
+ * searchCustomer
+ * searchCustomer using the name and birth that they give in
+ * go to customer db where the name and birth are same
+ * and then, get the documetation spread information using customerList() function
+ */
 function searchCustomer(){
     
     var name = $("#search-name").val();
@@ -71,6 +94,11 @@ function searchCustomer(){
     
 }
 
+/**
+ * deleteCustomer
+ * get customerID from global value and delete from customer db
+ * and also delete all of the histories in history db 
+ */
 function deleteCustomer(){
     db.collection("Customer")
     .doc(customerID)
@@ -98,7 +126,13 @@ function deleteCustomer(){
     back_to_cus_list();
 }
     
-
+/**
+ * editCustomer
+ * if the button is "완료", can not edit the input text
+ * and find the sell values and coordinate the level. SILVER, GOLD, VIP, VVIP.
+ * and set the updated customer information in customer DB
+ * and spread the new customer information in the web site.
+ */
 function editCustomer() {
     if( document.getElementById("edit-customer-btn").innerText  == "완료"){
         document.getElementById("edit-customer-btn").innerText  = "EDIT";
@@ -193,6 +227,13 @@ function editCustomer() {
 
     }
 }
+
+/**
+ * select_customer
+ * @param {any} id
+ * when you click the <tr> tag, select customer and get the information of who they choose
+ * and give the information in HTML tags 
+ */
 function select_customer(id) {
     db.collection("Customer")
     .doc(id)
@@ -217,17 +258,28 @@ function select_customer(id) {
     
 }
 
+/**
+ * onClickListener of customer-list button.
+ * get customerID of that they choose.
+ */
 $("#customer-lists").on("click", "tr", function() { 
         var id = $(this).attr('id');
         customerID = id;
         select_customer(id);
  });
 
+ /**
+  * back_to_cus_list
+  * back to the view and show the view.
+  */
  function back_to_cus_list() {
     document.getElementById("informatio_form").style="display:none"
     document.getElementById("search_result").style="display:block"
 }
 
+/**
+ * onclickListener and onclick functions of buttons.
+ */
 window.onload = function () {
     document.getElementById('add-customer-btn').addEventListener('click', addCustomer,false);
     document.getElementById('search-btn').addEventListener('click', searchCustomer,false);
@@ -238,5 +290,7 @@ window.onload = function () {
 
 }
 
-   
+/**
+ * get db from firebase firestore.
+ */
 var db = firebase.firestore();
