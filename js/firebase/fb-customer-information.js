@@ -1,9 +1,20 @@
+/** * 
+ * @file fb-calendar.js 
+ * this file is to manage cutomer information
+ * */
+
+/**
+ * customer ID 
+ */
 var customerID;
 const customerName = document.getElementById('name');
 const customerBirth = document.getElementById('birth');
 const customerPhoneNo = document.getElementById('contact-number');
 const defaultval = 0;
-
+/**
+ * addCustomer adds customer
+ *  @params evt {string} customer event
+ */
 function addCustomer(evt){
     evt.preventDefault();
     var postData={

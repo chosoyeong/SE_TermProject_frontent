@@ -207,7 +207,9 @@ const init = {
   }
   
   /**
-   * @param {string} val
+   * createNewList is to create new customer 
+   * by getting data of information
+   * @param {any} val information of customer
    */
   function createNewList (val) {
     let id = new Date().getTime() + '';

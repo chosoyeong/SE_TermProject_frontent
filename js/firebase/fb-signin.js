@@ -1,3 +1,8 @@
+/** * 
+ * @file fb-signin.js 
+ * this file is to signup
+ * */
+
 /**
  * Handles the sign in button press.
  */
@@ -10,11 +15,11 @@ function toggleSignIn() {
 		var password = document.getElementById('password').value;
 
 		if (email.length < 4) {
-			alert('ÀÌ¸ÞÀÏÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.');
+			alert('ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½.');
 			return;
 		}
 		if (password.length < 4) {
-			alert('ºñ¹Ð¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.');
+			alert('ï¿½ï¿½Ð¹ï¿½È£ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½.');
 			return;
 		}
 
@@ -28,7 +33,7 @@ function toggleSignIn() {
 			var errorMessage = error.message;
 
 			if (errorCode === 'auth/wrong-password') {
-				alert('Àß¸øµÈ ÆÐ½º¿öµå ÀÔ´Ï´Ù.');
+				alert('ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô´Ï´ï¿½.');
 			} else {
 				alert(errorMessage);
 			}

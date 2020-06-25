@@ -1,4 +1,15 @@
+/** * 
+ * @file fb-calendar.js 
+ * this file is to manage clendar
+ * for example, showing reservation
+ * */
 
+
+
+/**
+* getSchedules gets schedule 
+* @param {any} evt name of customer, time of customer, doctor
+*/
 function getSchedules() {
 
     db.collection("Reservation").orderBy("time").get().then(function (querySnapshot) {
@@ -17,7 +28,9 @@ function getSchedules() {
         });
     });
 }
-
+/**
+* addSchedule adds schedule
+*/
 function addSchedule() {
 
     var name = document.getElementById("Name").value;

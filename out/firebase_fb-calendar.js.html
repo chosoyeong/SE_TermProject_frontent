@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>firebase/fb-calendar.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addBooking">addBooking</a></li><li><a href="global.html#addConsultation">addConsultation</a></li><li><a href="global.html#addCustomer">addCustomer</a></li><li><a href="global.html#addSchedule">addSchedule</a></li><li><a href="global.html#allClear">allClear</a></li><li><a href="global.html#back_to_list">back_to_list</a></li><li><a href="global.html#clearConsulting">clearConsulting</a></li><li><a href="global.html#createNewList">createNewList</a></li><li><a href="global.html#customerID">customerID</a></li><li><a href="global.html#customerList">customerList</a></li><li><a href="global.html#deleteConsultation">deleteConsultation</a></li><li><a href="global.html#edit_complete">edit_complete</a></li><li><a href="global.html#editConsultation">editConsultation</a></li><li><a href="global.html#getSchedules">getSchedules</a></li><li><a href="global.html#handleSignUp">handleSignUp</a></li><li><a href="global.html#HistoryList">HistoryList</a></li><li><a href="global.html#initApp">initApp</a></li><li><a href="global.html#initLoading">initLoading</a></li><li><a href="global.html#loadDate">loadDate</a></li><li><a href="global.html#loadYYMM">loadYYMM</a></li><li><a href="global.html#searchCustomer">searchCustomer</a></li><li><a href="global.html#sendEmailVerification">sendEmailVerification</a></li><li><a href="global.html#toggleSignIn">toggleSignIn</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">firebase/fb-calendar.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/** * 
+ * @file fb-calendar.js 
+ * this file is to manage clendar
+ * for example, showing reservation
+ * */
+
+
+
+/**
+* getSchedules gets schedule 
+* @param {any} evt name of customer, time of customer, doctor
+*/
+function getSchedules() {
+
+    db.collection("Reservation").orderBy("time").get().then(function (querySnapshot) {
+        querySnapshot.forEach(function (doc) {
+			scheduleDBData.push(doc.data());
+
+            calendar.addEvent({
+                'title': doc.data()["patientName"] + "\n Dr." + doc.data()["docName"] + "\n Time:" + doc.data()["time"],
+                'start': doc.data()["date"],
+                'end': doc.data()["date"],
+                'id': doc.id,
+                'date':doc.data()["date"]
+            });
+
+            events = calendar.getEvents();
+        });
+    });
+}
+/**
+* addSchedule adds schedule
+*/
+function addSchedule() {
+
+    var name = document.getElementById("Name").value;
+    var date = document.getElementById("Date").value;
+    var time = document.getElementById("Time").value;
+    var dr = document.getElementById("Doctor").value;
+
+    if (name != "" &amp;&amp; date != "" &amp;&amp; time != "" &amp;&amp; dr != "") {
+        db.collection("Reservation").add({
+            "date": date,
+            "docName": dr,
+            "patientName": name,
+            "time": time,
+            "state": "",
+        }).then(function () {
+            window.location.reload();
+        });
+    }
+
+}
+
+function editSchedule(id) {
+
+    var name = document.getElementById("Name_edit").value;
+    var date = document.getElementById("Date_edit").value;
+    var time = document.getElementById("Time_edit").value;
+    var dr = document.getElementById("Doctor_edit").value;
+
+    if (name != "" &amp;&amp; date != "" &amp;&amp; time != "" &amp;&amp; dr != "") {
+        db.collection("Reservation").doc(id).set({
+            "date": date,
+            "docName": dr,
+            "patientName": name,
+            "time": time,
+            "state": "",
+        }).then(function () {
+            window.location.reload();
+        });
+    }
+}
+
+function deleteSchedule(id) {
+
+    db.collection("Reservation").doc(id).delete().then(function () {
+        window.location.reload();
+    });
+}
+
+function filterEvent(drName){
+	if(!isfilted){
+		calendar.removeAllEvents();
+		for(value of events){
+
+			var data = value._def["title"].split("\n");
+			docName = data[1].substring(4, data[1].len);
+
+			if(docName == drName) {
+			calendar.addEvent(value);
+			}
+		}
+		isfilted = true;
+	}
+	else {
+		calendar.removeAllEvents();
+
+		for(value of events){
+			calendar.addEvent(value);
+		}
+
+		isfilted = false;
+	}
+}
+
+var db = firebase.firestore();
+var scheduleDBData = new Array();
+var schedules = new Array();
+getSchedules();
+
+var isfilted = false;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a> on Tue Jun 23 2020 04:46:25 GMT+0900 (GMT+09:00) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>

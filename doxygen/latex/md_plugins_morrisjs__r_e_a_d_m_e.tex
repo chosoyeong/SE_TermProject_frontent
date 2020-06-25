@@ -1,0 +1,193 @@
+\href{http://travis-ci.org/morrisjs/morris.js}{\texttt{ }}
+
+Morris.\+js is the library that powers the graphs on \href{http://howmanyleft.co.uk/}{\texttt{ http\+://howmanyleft.\+co.\+uk/}}. It\textquotesingle{}s a very simple A\+PI for drawing line, bar, area and donut charts.
+
+Cheers!
+
+-\/ Olly (\href{mailto:olly@oesmith.co.uk}{\texttt{ olly@oesmith.\+co.\+uk}})\hypertarget{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md1}{}\doxysection{Contributors wanted}\label{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md1}
+I\textquotesingle{}m unfortunately not able to actively support Morris.\+js any more. I keep an eye on the issues, but I rarely have the time to fix bugs or review pull requests.
+
+If you\textquotesingle{}re interested in actively contributing to Morris.\+js, please contact me on the email address above.\hypertarget{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md2}{}\doxysection{Requirements}\label{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md2}
+
+\begin{DoxyItemize}
+\item \href{http://jquery.com/}{\texttt{ j\+Query}} ($>$= 1.\+7 recommended, but it\textquotesingle{}ll probably work with older versions)
+\item \href{http://raphaeljs.com/}{\texttt{ Raphael.\+js}} ($>$= 2.\+0)
+\end{DoxyItemize}\hypertarget{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md3}{}\doxysection{Usage}\label{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md3}
+See \href{http://morrisjs.github.com/morris.js/}{\texttt{ the website}}.\hypertarget{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md4}{}\doxysection{Development}\label{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md4}
+Very daring.
+
+Fork, hack, possibly even add some tests, then send a pull request \+:)
+
+Remember that Morris.\+js is a coffeescript project. Please make your changes in the {\ttfamily .coffee} files, not in the compiled javascript files in the root directory of the project.\hypertarget{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md5}{}\doxysubsection{Developer quick-\/start}\label{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md5}
+You\textquotesingle{}ll need \href{https://nodejs.org}{\texttt{ node.\+js}}. I recommend using \href{https://github.com/creationix/nvm}{\texttt{ nvm}} for installing node in development environments.
+
+With node installed, install \href{https://github.com/cowboy/grunt}{\texttt{ grunt}} using {\ttfamily npm install -\/g grunt-\/cli}, and then the rest of the test/build dependencies with {\ttfamily npm install} in the morris.\+js project folder.
+
+Once you\textquotesingle{}re all set up, you can compile, minify and run the tests using {\ttfamily grunt}.
+
+Note\+: I\textquotesingle{}m experimenting with using perceptual diffs to catch rendering regressions. Due to font rendering differences between platforms, the pdiff tests currently {\itshape only} pass on OS X.\hypertarget{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md6}{}\doxysection{Changelog}\label{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md6}
+\hypertarget{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md7}{}\doxysubsection{0.\+5.\+1 -\/ 15th June 2014}\label{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md7}
+
+\begin{DoxyItemize}
+\item Fix touch event handling.
+\item Fix stacked=false in bar chart \href{https://github.com/morrisjs/morris.js/issues/275}{\texttt{ \#275}}
+\item Configurable vertical segments \href{https://github.com/morrisjs/morris.js/issues/297}{\texttt{ \#297}}
+\item Deprecate continuous\+Line option.
+\end{DoxyItemize}\hypertarget{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md8}{}\doxysubsection{0.\+5.\+0 -\/ 19th March 2014}\label{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md8}
+
+\begin{DoxyItemize}
+\item Update grunt dependency \href{https://github.com/morrisjs/morris.js/issues/228}{\texttt{ \#288}}
+\item Donut segment color config in data objects \href{https://github.com/morrisjs/morris.js/issues/281}{\texttt{ \#281}}
+\item Customisable line widths and point drawing \href{https://github.com/morrisjs/morris.js/issues/272}{\texttt{ \#272}}
+\item Bugfix for @options.smooth \href{https://github.com/morrisjs/morris.js/issues/266}{\texttt{ \#266}}
+\item Option to disable axes individually \href{https://github.com/morrisjs/morris.js/issues/253}{\texttt{ \#253}}
+\item Range selection \href{https://github.com/morrisjs/morris.js/issues/252}{\texttt{ \#252}}
+\item Week format for x-\/labels \href{https://github.com/morrisjs/morris.js/issues/250}{\texttt{ \#250}}
+\item Update developer quickstart instructions \href{https://github.com/morrisjs/morris.js/issues/243}{\texttt{ \#243}}
+\item Experimenting with perceptual diffs.
+\item Add original data row to hover callback \href{https://github.com/morrisjs/morris.js/issues/264}{\texttt{ \#264}}
+\item set\+Data method for donut charts \href{https://github.com/morrisjs/morris.js/issues/211}{\texttt{ \#211}}
+\item Automatic resizing \href{https://github.com/morrisjs/morris.js/issues/111}{\texttt{ \#111}}
+\item Fix travis builds \href{https://github.com/morrisjs/morris.js/issues/298}{\texttt{ \#298}}
+\item Option for rounded corners on bar charts \href{https://github.com/morrisjs/morris.js/issues/305}{\texttt{ \#305}}
+\item Option to set padding for X axis labels \href{https://github.com/morrisjs/morris.js/issues/306}{\texttt{ \#306}}
+\item Use local javascript for examples.
+\item Events on non-\/time series \href{https://github.com/morrisjs/morris.js/issues/314}{\texttt{ \#314}}
+\end{DoxyItemize}\hypertarget{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md9}{}\doxysubsection{0.\+4.\+3 -\/ 12th May 2013}\label{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md9}
+
+\begin{DoxyItemize}
+\item Fix flickering hover box \href{https://github.com/morrisjs/morris.js/issues/186}{\texttt{ \#186}}
+\item x\+Label\+Angle option (diagonal labels!!) \href{https://github.com/morrisjs/morris.js/issues/239}{\texttt{ \#239}}
+\item Fix area chart fill bug \href{https://github.com/morrisjs/morris.js/issues/190}{\texttt{ \#190}}
+\item Make event handlers chainable
+\item grid\+Text\+Family and grid\+Text\+Weight options
+\item Fix hovers with set\+Data \href{https://github.com/morrisjs/morris.js/issues/213}{\texttt{ \#213}}
+\item Fix hide\+Hover behaviour \href{https://github.com/morrisjs/morris.js/issues/236}{\texttt{ \#236}}
+\end{DoxyItemize}\hypertarget{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md10}{}\doxysubsection{0.\+4.\+2 -\/ 14th April 2013}\label{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md10}
+
+\begin{DoxyItemize}
+\item Fix D\+ST handling \href{https://github.com/morrisjs/morris.js/issues/191}{\texttt{ \#191}}
+\item Parse data values from strings in Morris.\+Donut \href{https://github.com/morrisjs/morris.js/issues/189}{\texttt{ \#189}}
+\item Non-\/cumulative area charts \href{https://github.com/morrisjs/morris.js/issues/199}{\texttt{ \#199}}
+\item Round Y-\/axis labels to significant numbers \href{https://github.com/morrisjs/morris.js/162}{\texttt{ \#162}}
+\item Customising default hover content \href{https://github.com/morrisjs/morris.js/179}{\texttt{ \#179}}
+\end{DoxyItemize}\hypertarget{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md11}{}\doxysubsection{0.\+4.\+1 -\/ 8th February 2013}\label{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md11}
+
+\begin{DoxyItemize}
+\item Fix goal and event rendering. \href{https://github.com/morrisjs/morris.js/issues/181}{\texttt{ \#181}}
+\item Don\textquotesingle{}t break when empty data is passed to set\+Data \href{https://github.com/morrisjs/morris.js/issues/142}{\texttt{ \#142}}
+\item label\+Color option for donuts \href{https://github.com/morrisjs/morris.js/issues/159}{\texttt{ \#159}}
+\end{DoxyItemize}\hypertarget{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md12}{}\doxysubsection{0.\+4.\+0 -\/ 26th January 2013}\label{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md12}
+
+\begin{DoxyItemize}
+\item Goals and events \href{https://github.com/morrisjs/morris.js/issues/103}{\texttt{ \#103}}.
+\item Bower package manager metadata.
+\item More flexible formatters \href{https://github.com/morrisjs/morris.js/issues/107}{\texttt{ \#107}}.
+\item Color callbacks.
+\item Decade intervals for time-\/axis labels.
+\item Non-\/continous line tweaks \href{https://github.com/morrisjs/morris.js/issues/116}{\texttt{ \#116}}.
+\item Stacked bars \href{https://github.com/morrisjs/morris.js/issues/120}{\texttt{ \#120}}.
+\item H\+T\+ML hover \href{https://github.com/morrisjs/morris.js/issues/134}{\texttt{ \#134}}.
+\item y\+Label\+Format \href{https://github.com/morrisjs/morris.js/issues/139}{\texttt{ \#139}}.
+\item Disable axes \href{https://github.com/morrisjs/morris.js/issues/114}{\texttt{ \#114}}.
+\end{DoxyItemize}\hypertarget{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md13}{}\doxysubsection{0.\+3.\+3 -\/ 1st November 2012}\label{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md13}
+
+\begin{DoxyItemize}
+\item {\bfseries{Bar charts!}} \href{https://github.com/morrisjs/morris.js/issues/101}{\texttt{ \#101}}.
+\end{DoxyItemize}\hypertarget{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md14}{}\doxysubsection{0.\+3.\+2 -\/ 28th October 2012}\label{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md14}
+
+\begin{DoxyItemize}
+\item {\bfseries{Area charts!}} \href{https://github.com/morrisjs/morris.js/issues/47}{\texttt{ \#47}}.
+\item Some major refactoring and test suite improvements.
+\item Set smooth parameter per series \href{https://github.com/morrisjs/morris.js/issues/91}{\texttt{ \#91}}.
+\item Custom date\+Format for string x-\/values \href{https://github.com/morrisjs/morris.js/issues/90}{\texttt{ \#90}}.
+\end{DoxyItemize}\hypertarget{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md15}{}\doxysubsection{0.\+3.\+1 -\/ 13th October 2012}\label{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md15}
+
+\begin{DoxyItemize}
+\item Add {\ttfamily formatter} option for customising value labels in donuts \href{https://github.com/morrisjs/morris.js/issues/75}{\texttt{ \#75}}.
+\item Cycle {\ttfamily line\+Colors} on line charts to avoid running out of colours \href{https://github.com/morrisjs/morris.js/issues/78}{\texttt{ \#78}}.
+\item Add method to select donut segments. \href{https://github.com/morrisjs/morris.js/issues/79}{\texttt{ \#79}}.
+\item Don\textquotesingle{}t go negative on y\+Min when all y values are zero. \href{https://github.com/morrisjs/morris.js/issues/80}{\texttt{ \#80}}.
+\item Don\textquotesingle{}t sort data when parse\+Time is false \href{https://github.com/morrisjs/morris.js/issues/83}{\texttt{ \#83}}.
+\item Customise styling for points. \href{https://github.com/morrisjs/morris.js/issues/87}{\texttt{ \#87}}.
+\end{DoxyItemize}\hypertarget{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md16}{}\doxysubsection{0.\+3.\+0 -\/ 15th September 2012}\label{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md16}
+
+\begin{DoxyItemize}
+\item Donut charts!
+\item Bugfix\+: ymin/ymax bug \href{https://github.com/morrisjs/morris.js/issues/71}{\texttt{ \#71}}.
+\item Bugfix\+: infinite loop when data indicates horizontal line \href{https://github.com/morrisjs/morris.js/issues/66}{\texttt{ \#66}}.
+\end{DoxyItemize}\hypertarget{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md17}{}\doxysubsection{0.\+2.\+10 -\/ 26th June 2012}\label{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md17}
+
+\begin{DoxyItemize}
+\item Support for decimal labels on y-\/axis \href{https://github.com/morrisjs/morris.js/issues/58}{\texttt{ \#58}}.
+\item Better axis label clipping \href{https://github.com/morrisjs/morris.js/issues/63}{\texttt{ \#63}}.
+\item Redraw graphs with updated data using {\ttfamily set\+Data} method \href{https://github.com/morrisjs/morris.js/issues/64}{\texttt{ \#64}}.
+\item Bugfix\+: series with zero or one non-\/null values \href{https://github.com/morrisjs/morris.js/issues/65}{\texttt{ \#65}}.
+\end{DoxyItemize}\hypertarget{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md18}{}\doxysubsection{0.\+2.\+9 -\/ 15th May 2012}\label{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md18}
+
+\begin{DoxyItemize}
+\item Bugfix\+: Fix zero-\/value regression
+\item Bugfix\+: Don\textquotesingle{}t modify user-\/supplied data
+\end{DoxyItemize}\hypertarget{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md19}{}\doxysubsection{0.\+2.\+8 -\/ 10th May 2012}\label{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md19}
+
+\begin{DoxyItemize}
+\item Customising x-\/axis labels with {\ttfamily x\+Label\+Format} option
+\item Only use timezones when timezone info is specified
+\item Fix old IE bugs (mostly in examples!)
+\item Added {\ttfamily preunits} and {\ttfamily postunits} options
+\item Better non-\/continuous series data support
+\end{DoxyItemize}\hypertarget{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md20}{}\doxysubsection{0.\+2.\+7 -\/ 2nd April 2012}\label{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md20}
+
+\begin{DoxyItemize}
+\item Added {\ttfamily x\+Labels} option
+\item Refactored x-\/axis labelling
+\item Better I\+SO date support
+\item Fix bug with single value in non time-\/series graphs
+\end{DoxyItemize}\hypertarget{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md21}{}\doxysubsection{0.\+2.\+6 -\/ 18th March 2012}\label{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md21}
+
+\begin{DoxyItemize}
+\item Partial series support (see {\ttfamily null} y-\/values in {\ttfamily examples/quarters.\+html})
+\item {\ttfamily parse\+Time} option bugfix for non-\/time-\/series data
+\end{DoxyItemize}\hypertarget{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md22}{}\doxysubsection{0.\+2.\+5 -\/ 15th March 2012}\label{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md22}
+
+\begin{DoxyItemize}
+\item Raw millisecond timestamp support (with {\ttfamily date\+Format} option)
+\item Y\+Y\+Y\+Y-\/\+M\+M-\/\+DD HH\+:MM\mbox{[}\+:SS\mbox{[}.S\+SS\mbox{]}\mbox{]} date support
+\item Decimal number labels
+\end{DoxyItemize}\hypertarget{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md23}{}\doxysubsection{0.\+2.\+4 -\/ 8th March 2012}\label{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md23}
+
+\begin{DoxyItemize}
+\item Negative y-\/values support
+\item {\ttfamily ymin} option
+\item {\ttfamily units} options
+\end{DoxyItemize}\hypertarget{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md24}{}\doxysubsection{0.\+2.\+3 -\/ 6th Mar 2012}\label{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md24}
+
+\begin{DoxyItemize}
+\item j\+Query no-\/conflict compatibility
+\item Support I\+SO week-\/number dates
+\item Optionally hide hover on mouseout ({\ttfamily hide\+Hover})
+\item Optionally skip parsing dates, treating X values as an equally-\/spaced series ({\ttfamily parse\+Time})
+\end{DoxyItemize}\hypertarget{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md25}{}\doxysubsection{0.\+2.\+2 -\/ 29th Feb 2012}\label{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md25}
+
+\begin{DoxyItemize}
+\item Bugfix\+: mouseover error when options.\+data.\+length == 2
+\item Automatically sort options.\+data
+\end{DoxyItemize}\hypertarget{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md26}{}\doxysubsection{0.\+2.\+1 -\/ 28th Feb 2012}\label{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md26}
+
+\begin{DoxyItemize}
+\item Accept a D\+OM element {\itshape or} an ID in {\ttfamily options.\+element}
+\item Add {\ttfamily smooth} option
+\item Bugfix\+: clone {\ttfamily @default}
+\item Add {\ttfamily ymax} option
+\end{DoxyItemize}\hypertarget{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md27}{}\doxysection{License}\label{md_plugins_morrisjs__r_e_a_d_m_e_autotoc_md27}
+Copyright (c) 2012-\/2014, Olly Smith All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\+:
+
+
+\begin{DoxyEnumerate}
+\item Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+\item Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+\end{DoxyEnumerate}
+
+T\+H\+IS S\+O\+F\+T\+W\+A\+RE IS P\+R\+O\+V\+I\+D\+ED BY T\+HE C\+O\+P\+Y\+R\+I\+G\+HT H\+O\+L\+D\+E\+RS A\+ND C\+O\+N\+T\+R\+I\+B\+U\+T\+O\+RS \char`\"{}\+A\+S I\+S\char`\"{} A\+ND A\+NY E\+X\+P\+R\+E\+SS OR I\+M\+P\+L\+I\+ED W\+A\+R\+R\+A\+N\+T\+I\+ES, I\+N\+C\+L\+U\+D\+I\+NG, B\+UT N\+OT L\+I\+M\+I\+T\+ED TO, T\+HE I\+M\+P\+L\+I\+ED W\+A\+R\+R\+A\+N\+T\+I\+ES OF M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+TY A\+ND F\+I\+T\+N\+E\+SS F\+OR A P\+A\+R\+T\+I\+C\+U\+L\+AR P\+U\+R\+P\+O\+SE A\+RE D\+I\+S\+C\+L\+A\+I\+M\+ED. IN NO E\+V\+E\+NT S\+H\+A\+LL T\+HE C\+O\+P\+Y\+R\+I\+G\+HT O\+W\+N\+ER OR C\+O\+N\+T\+R\+I\+B\+U\+T\+O\+RS BE L\+I\+A\+B\+LE F\+OR A\+NY D\+I\+R\+E\+CT, I\+N\+D\+I\+R\+E\+CT, I\+N\+C\+I\+D\+E\+N\+T\+AL, S\+P\+E\+C\+I\+AL, E\+X\+E\+M\+P\+L\+A\+RY, OR C\+O\+N\+S\+E\+Q\+U\+E\+N\+T\+I\+AL D\+A\+M\+A\+G\+ES (I\+N\+C\+L\+U\+D\+I\+NG, B\+UT N\+OT L\+I\+M\+I\+T\+ED TO, P\+R\+O\+C\+U\+R\+E\+M\+E\+NT OF S\+U\+B\+S\+T\+I\+T\+U\+TE G\+O\+O\+DS OR S\+E\+R\+V\+I\+C\+ES; L\+O\+SS OF U\+SE, D\+A\+TA, OR P\+R\+O\+F\+I\+TS; OR B\+U\+S\+I\+N\+E\+SS I\+N\+T\+E\+R\+R\+U\+P\+T\+I\+ON) H\+O\+W\+E\+V\+ER C\+A\+U\+S\+ED A\+ND ON A\+NY T\+H\+E\+O\+RY OF L\+I\+A\+B\+I\+L\+I\+TY, W\+H\+E\+T\+H\+ER IN C\+O\+N\+T\+R\+A\+CT, S\+T\+R\+I\+CT L\+I\+A\+B\+I\+L\+I\+TY, OR T\+O\+RT (I\+N\+C\+L\+U\+D\+I\+NG N\+E\+G\+L\+I\+G\+E\+N\+CE OR O\+T\+H\+E\+R\+W\+I\+SE) A\+R\+I\+S\+I\+NG IN A\+NY W\+AY O\+UT OF T\+HE U\+SE OF T\+H\+IS S\+O\+F\+T\+W\+A\+RE, E\+V\+EN IF A\+D\+V\+I\+S\+ED OF T\+HE P\+O\+S\+S\+I\+B\+I\+L\+I\+TY OF S\+U\+CH D\+A\+M\+A\+GE. 

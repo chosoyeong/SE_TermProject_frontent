@@ -1,3 +1,8 @@
+/** * 
+ * @file fb-signup.js 
+ * this file is to signup
+ * */
+
 /**
  * Handles the sign up button press.
  */

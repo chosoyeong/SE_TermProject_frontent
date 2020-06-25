@@ -1,3 +1,7 @@
+/** * 
+ * @file fb-consultation-history.js 
+ * this file is to manage consultation history of customer
+ * */
 
 const customerName = document.getElementById('txt1_cus');
 const customerBirth = document.getElementById('birth_cus');
@@ -10,6 +14,11 @@ const title = document.getElementById('txt7_cus');
 const content = document.getElementById('txt8_cus');
 var customerID;
 var historyID;
+
+/**
+* addConsultation adds consultation history of customer
+* @param {string} evt history event
+*/
 function addConsultation(evt){
     evt.preventDefault();
     db.collection("Customer")
@@ -77,6 +86,14 @@ function addConsultation(evt){
     
 
 }
+/**
+* customerList shows customer list
+* @param {any} id customer id
+* @param {number} number customer number
+* @param {string} name customer name
+* @param {date} birth customer birth of date
+* @param {phone} phone customer phone number
+*/
 function customerList(id,number,name,birth,phone){
     let tmp_html = `<tr id="${id}" class="tdcls">\
         <td>${number}</td>\
@@ -87,6 +104,15 @@ function customerList(id,number,name,birth,phone){
     $("#customer-lists").append(tmp_html);
     
 }
+
+/**
+* HistoryList shows customer consultaion list
+* @param {any} id customer id
+* @param {number} number customer id
+* @param {string} name customer id
+* @param {date} birth customer id
+* @param {phone} phone customer id
+*/
 function HistoryList(id,number,title,date){
     let tmp_html = `<tr id="${id}">\
         <td>${number}</td>\
@@ -96,6 +122,11 @@ function HistoryList(id,number,title,date){
     $("#history-lists").append(tmp_html);
     
 }
+
+/**
+* searchCustomer enables to search customer
+* to view one customer's data
+*/
 function searchCustomer(){
     $("#customer-lists").html("");
     var index=0;
@@ -115,7 +146,9 @@ function searchCustomer(){
         alert(error);
     });
 }
-
+/**
+* allClear delete all data of customer information
+*/
 function allClear(){
     $('#txt1_cus').val("");
     $('#birth_cus').val("");
@@ -144,7 +177,9 @@ $("#customer-lists").on("click", "tr", function() {
      })
     
 });
-
+/**
+* clearConsulting delete all data of customer consultation history
+*/
 function clearConsulting(){
     $("#txt1").val("");
     $("#birth").val("");
@@ -177,6 +212,9 @@ $("#history-lists").on("click", "tr", function() {
         alert("error in select_customer");
     })
 });
+/**
+* editConsultation edit all data of customer consultation history
+*/
 function editConsultation() {
     document.getElementById("edit-consultation-btn").style="display:block"      
     document.getElementById("complete-btn").style="display:block"
@@ -199,7 +237,9 @@ function editConsultation() {
         oEle8.readOnly = false ;                                 
                  
 }
-
+/**
+* deleteConsultation deletes all data of customer consultation history
+*/
 function deleteConsultation(){
     
     db.collection("History")
@@ -239,11 +279,17 @@ function deleteConsultation(){
     clearConsulting();
     back_to_list();
 }
-
+/**
+* back_to_list enables to show back view
+*/
 function back_to_list() {
     document.getElementById("history_form").style="display:none"
     document.getElementById("history_list").style="display:block"
 }
+/**
+* edit_complete enables to eidit completed
+and show alert message that alerts completed
+*/
 function edit_complete() {
     document.getElementById("complete-btn").style="display:block"
     db.collection("History")

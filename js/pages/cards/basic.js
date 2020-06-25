@@ -2,7 +2,10 @@
     initLoading();
 });
 
-//Init Loading
+
+/**
+ * Init Loading
+ */
 function initLoading() {
     $('[data-toggle="cardloading"]').on('click', function () {
         var effect = $(this).data('loadingEffect');
