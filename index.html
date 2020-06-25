@@ -32,8 +32,7 @@
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="css/themes/all-themes.css" rel="stylesheet" />
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&family=Noto+Serif+KR:wght@700&display=swap" rel="stylesheet">
 </head>
 
@@ -89,16 +88,16 @@
             <!-- User Info -->
             <div class="user-info">
                 <div class="image">
-                    <img src="images/user2.png" width="50" height="50" />
+                    <img src="./images/user2.png" width="50" height="50" />
                 </div>
                 <div class="info-container">
-                    <div class="name" id="user-name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe</div>
-                    <div class="email" id="user-email">john.doe@example.com</div>
+                    <div class="name" id="user-name_" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></div>
+                    <div class="email" id="user-email_"></div>
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
-                            
-                            <li><a href="pages/examples/sign-in.html"><i class="material-icons">input</i>Sign Out</a></li>
+
+                            <li><a id="SIGNOUT"><i class="material-icons">input</i>Sign Out</a></li>
                         </ul>
                     </div>
                 </div>
@@ -114,16 +113,16 @@
                             <span>Home</span>
                         </a>
                     </li>
-                    
+
                     <li>
-                        <a href="pages/helper-classes.html">
+                        <a href="Customer-Information.html">
                             <img src="images/info.png" width="30px" height="30px" />
                             <span>Customer information</span>
                         </a>
                     </li>
 
                     <li>
-                        <a href="pages/widgets/cards/basic.html">
+                        <a href="Customer-Consultation.html">
                             <img src="images/consultation.png" width="30px" height="30px" />
                             <span>Customer Consultation</span>
                         </a>
@@ -131,7 +130,7 @@
 
 
                     <li>
-                        <a href="pages/widgets/cards/no-header.html">
+                        <a href="Reservation-Calendar.html">
                             <img src="images/calendar.png" width="30px" height="30px" />
                             <span>Reservation Calender</span>
                         </a>
@@ -199,7 +198,7 @@
                                                 <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T</th>
                                                 <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;F</th>
                                                 <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S</th>
-                                                
+
                                             </tr>
                                         </thead>
                                         <tbody class="cal-body"></tbody>
@@ -254,15 +253,9 @@
     <!-- Waves Effect Plugin Js -->
     <script src="plugins/node-waves/waves.js"></script>
 
-    <!-- Jquery CountTo Plugin Js -->
-    <script src="plugins/jquery-countto/jquery.countTo.js"></script>
-
     <!-- Morris Plugin Js -->
     <script src="plugins/raphael/raphael.min.js"></script>
     <script src="plugins/morrisjs/morris.js"></script>
-
-    <!-- ChartJs -->
-    <script src="plugins/chartjs/Chart.bundle.js"></script>
 
     <!-- Flot Charts Plugin Js -->
     <script src="plugins/flot-charts/jquery.flot.js"></script>
@@ -271,26 +264,22 @@
     <script src="plugins/flot-charts/jquery.flot.categories.js"></script>
     <script src="plugins/flot-charts/jquery.flot.time.js"></script>
 
-    <!-- Sparkline Chart Plugin Js -->
-    <script src="plugins/jquery-sparkline/jquery.sparkline.js"></script>
     <!-- Custom Js -->
     <script src="js/admin.js"></script>
     <script src="js/pages/index.js"></script>
+
     <!-- Firebase -->
     <script src='https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js'></script>
     <script src='https://www.gstatic.com/firebasejs/7.15.0/firebase-analytics.js'></script>
     <script src='https://www.gstatic.com/firebasejs/7.15.0/firebase-auth.js'></script>
-    <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-firestore.js"></script>
-    <script src="./js/firebase/fb-init.js"></script>
-    <script src="./js/firebase/fb-main-user.js"></script>
-    <script src="./js/firebase/fb-calender-reservation.js"></script>
-
-
+    <script src="js/firebase/fb-init.js"></script>
+    <script src="js/firebase/fb-main-user.js"></script>
+    <script src="js/firebase/fb-calender-reservation.js"></script>
 
 
     <!-- Demo Js -->
-    <script src="js/demo.js"></script>
+    <script src="js/pages/demo.js"></script>
 
 </body>
 
