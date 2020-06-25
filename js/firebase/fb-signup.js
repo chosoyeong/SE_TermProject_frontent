@@ -5,14 +5,16 @@
 
 /**
  * Handles the sign up button press.
+ * Add user's information to Firebase's authentication center.
  */
 function handleSignUp() {
+    // get elements
 	var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
     var confirm = document.getElementById('confirm').value;
-	// Additional input information
 	var name = document.getElementById('name').value;
 
+    /* Wrong Form */
 	if (email.length < 4) {
 		alert('Please enter an email address.');
 		return;
@@ -21,13 +23,12 @@ function handleSignUp() {
 		alert('Please enter a password.');
 		return;
     }
-
     if (password != confirm) {
         alert('Wrong password & Confirm password');
         return;
     }
 
-	
+    //Sign out if signed in
 	if(firebase.auth().currentUser){
 		// LOGOUT
         firebase.auth().signOut();
@@ -40,6 +41,7 @@ function handleSignUp() {
 		var errorCode = error.code;
 		var errorMessage = error.message;
 
+        // Password is weak
 		if (errorCode == 'auth/weak-password') {
 			alert('The password is too weak.');
 		} else {
@@ -49,6 +51,7 @@ function handleSignUp() {
     }).then(function (data) { // Init userprofile
         console.log("create auth");
 
+        //Update user's name
 		data.user.updateProfile({
 			displayName: name
 		}).then(function() {
@@ -65,6 +68,7 @@ function handleSignUp() {
 
 /**
  * initApp handles setting up UI event listeners
+ * Initialize Firebase authentication
  */
 function initApp() {
 	firebase.auth().onAuthStateChanged(function (user) {

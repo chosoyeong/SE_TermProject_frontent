@@ -5,25 +5,20 @@
 
 /**
  * Handles the sign in button press.
+ * Verify users through Firebase's authentication center
  */
 function toggleSignIn() {
+    //Sign out if another user is signed in
     if (firebase.auth().currentUser) {
         // SIGN OUT
         firebase.auth().signOut();
     }
+
+    //get elements
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
 
-<<<<<<< HEAD
-		if (email.length < 4) {
-			alert('ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½.');
-			return;
-		}
-		if (password.length < 4) {
-			alert('ï¿½ï¿½Ð¹ï¿½È£ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½.');
-			return;
-		}
-=======
+    //not entered
     if (email.length < 4) {
         alert('ÀÌ¸ÞÀÏÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.');
         return;
@@ -32,7 +27,6 @@ function toggleSignIn() {
         alert('ºñ¹Ð¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.');
         return;
     }
->>>>>>> 5b19f34c098811e516c2e9837547c6074a57b5e8
 
     // Sign in with email and pass.
     firebase.auth().signInWithEmailAndPassword(email, password).then(function () {
@@ -43,16 +37,6 @@ function toggleSignIn() {
         var errorCode = error.code;
         var errorMessage = error.message;
 
-<<<<<<< HEAD
-			if (errorCode === 'auth/wrong-password') {
-				alert('ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô´Ï´ï¿½.');
-			} else {
-				alert(errorMessage);
-			}
-			console.log(error);
-		});
-	}
-=======
         if (errorCode === 'auth/wrong-password') {
             alert('Àß¸øµÈ ÆÐ½º¿öµå ÀÔ´Ï´Ù.');
         } else {
@@ -60,13 +44,11 @@ function toggleSignIn() {
         }
         console.log(error);
     });
->>>>>>> 5b19f34c098811e516c2e9837547c6074a57b5e8
 }
 
 /**
- * initApp handles setting up UI event listeners and registering Firebase auth listeners:
- *  - firebase.auth().onAuthStateChanged: This listener is called when the user is signed in or
- *    out, and that is where we update the UI.
+ * initApp
+ * handles setting up UI event listeners and registering Firebase auth listeners:
  */
 function initApp() {
     // Listening for auth state changes.

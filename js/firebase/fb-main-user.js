@@ -1,6 +1,7 @@
 ﻿/*
  * Handle the Sign Out button press
-*/
+ * Click on button to sign out firebase authentication
+ */
 function handleSignOut(){
 	if(firebase.auth().currentUser){
 		// LOGOUT
@@ -13,6 +14,8 @@ function handleSignOut(){
 
 /*
  * init User Profile and Auth Listener
+ * Initialize Firebase authentication and add the authenticated user's data to the screen
+ * If you are not sign in, go to the sign-in page
 */
 function initApp() {
 	// Listening for auth state changes.
@@ -30,6 +33,7 @@ function initApp() {
 			// Alert message when logged in
 			//alert("email: " + email + "uid: " + uid);
 
+            //Display user's information on the screen
 			document.getElementById('user-email_').innerHTML = email;
 			document.getElementById('user-name_').innerHTML = displayName;
 		} else {

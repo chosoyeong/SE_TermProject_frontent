@@ -5,13 +5,12 @@
  * */
 
 
-
 /**
-* getSchedules gets schedule 
-* @param {any} evt name of customer, time of customer, doctor
-*/
+ * getSchedules gets schedule 
+ * @param {any} evt name of customer, time of customer, doctor (In HTML)
+ */
 function getSchedules() {
-
+    //Get all schedules
     db.collection("Reservation").orderBy("time").get().then(function (querySnapshot) {
         querySnapshot.forEach(function (doc) {
 			scheduleDBData.push(doc.data());
@@ -24,20 +23,24 @@ function getSchedules() {
                 'date':doc.data()["date"]
             });
 
+            //Calender events Save
             events = calendar.getEvents();
         });
     });
 }
-/**
-* addSchedule adds schedule
-*/
-function addSchedule() {
 
+/**
+ * AddSchedule adds schedule
+ * @param {any} evt name of customer, time of customer, doctor (In HTML)
+ */
+function addSchedule() {
+    // get elements
     var name = document.getElementById("Name").value;
     var date = document.getElementById("Date").value;
     var time = document.getElementById("Time").value;
     var dr = document.getElementById("Doctor").value;
 
+    // ADD in firestore
     if (name != "" && date != "" && time != "" && dr != "") {
         db.collection("Reservation").add({
             "date": date,
@@ -52,13 +55,19 @@ function addSchedule() {
 
 }
 
+/**
+ * Edit Schedule 
+ * @param {any} id, name of customer, time of customer, doctor (In HTML)
+ * Modify the contents of the schedule DB through Id(Doc).
+ */
 function editSchedule(id) {
-
+    // Get elements
     var name = document.getElementById("Name_edit").value;
     var date = document.getElementById("Date_edit").value;
     var time = document.getElementById("Time_edit").value;
     var dr = document.getElementById("Doctor_edit").value;
 
+    // edit firestore documentation
     if (name != "" && date != "" && time != "" && dr != "") {
         db.collection("Reservation").doc(id).set({
             "date": date,
@@ -72,13 +81,25 @@ function editSchedule(id) {
     }
 }
 
-function deleteSchedule(id) {
 
+/**
+ * Delete Schedule
+ * @param {any} id
+ * Delete the schedule with the corresponding ID in the DB through the Id value of the corresponding schedule
+ */
+function deleteSchedule(id) {
+    // delete in 
     db.collection("Reservation").doc(id).delete().then(function () {
         window.location.reload();
     });
 }
 
+/**
+ * Filtering calendar
+ * @param {any} drName
+ * Function to filter calendars to show only events with their name
+ * If already filtered, return to original
+ */
 function filterEvent(drName){
 	if(!isfilted){
 		calendar.removeAllEvents();
