@@ -1,5 +1,7 @@
 /** * 
  * @file fb-consultation-history.js 
+ * @author Heejin Ryu
+ * @version 1.0
  * this file is to manage consultation history of customer
  * */
 
@@ -15,9 +17,14 @@ const content = document.getElementById('txt8_cus');
 var customerID;
 var historyID;
 
+
 /**
-* addConsultation adds consultation history of customer
-* @param {string} evt history event
+* addConsultation 
+* @param {string} evt history event -> using for preventDefault() of Submit function
+* adds consultation history of customer customer ID which is global
+* 1. find customer using customer ID
+* 2. set the history value up in customer db
+* 3. set History in history DB
 */
 function addConsultation(evt){
     evt.preventDefault();
@@ -106,12 +113,13 @@ function customerList(id,number,name,birth,phone){
 }
 
 /**
-* HistoryList shows customer consultaion list
+* HistoryList 
 * @param {any} id customer id
 * @param {number} number customer id
 * @param {string} name customer id
 * @param {date} birth customer id
 * @param {phone} phone customer id
+* shows customer consultaion list
 */
 function HistoryList(id,number,title,date){
     let tmp_html = `<tr id="${id}">\
@@ -124,8 +132,9 @@ function HistoryList(id,number,title,date){
 }
 
 /**
-* searchCustomer enables to search customer
-* to view one customer's data
+* searchCustomer 
+* enables to search customer to view one customer's data
+* using customer name and birth which get from the tag value.
 */
 function searchCustomer(){
     $("#customer-lists").html("");
@@ -146,8 +155,10 @@ function searchCustomer(){
         alert(error);
     });
 }
+
 /**
-* allClear delete all data of customer information
+* allClear 
+* delete all data of customer information view.
 */
 function allClear(){
     $('#txt1_cus').val("");
@@ -161,6 +172,11 @@ function allClear(){
     $('#txt8_cus').val("");
 }
 
+/**
+ * onClickListener of customer-list <tr> tag.
+ * if customer button clicked, get the customer's id 
+ * and find the history of the customer, which on the snapshot listener and get history list again.
+ */
 $("#customer-lists").on("click", "tr", function() { 
     
     var id = $(this).attr('id');
@@ -177,8 +193,10 @@ $("#customer-lists").on("click", "tr", function() {
      })
     
 });
+
 /**
-* clearConsulting delete all data of customer consultation history
+* clearConsulting
+* delete all data of customer consultation history
 */
 function clearConsulting(){
     $("#txt1").val("");
@@ -191,6 +209,12 @@ function clearConsulting(){
     $("#txt8").val("");
 }
 
+
+/**
+ * onClickListener of history-lists <tr> tag.
+ * if customer button clicked, get the customer's id 
+ * and find the history of the customer, which on the snapshot listener and get history list again.
+ */
 $("#history-lists").on("click", "tr", function() { 
     var id = $(this).attr('id');
     historyID=id;
@@ -212,8 +236,10 @@ $("#history-lists").on("click", "tr", function() {
         alert("error in select_customer");
     })
 });
+
 /**
-* editConsultation edit all data of customer consultation history
+* editConsultation
+* edit all data of customer consultation history
 */
 function editConsultation() {
     document.getElementById("edit-consultation-btn").style="display:block"      
@@ -237,8 +263,12 @@ function editConsultation() {
         oEle8.readOnly = false ;                                 
                  
 }
+
+
 /**
-* deleteConsultation deletes all data of customer consultation history
+* deleteConsultation 
+* deletes all data of customer consultation history using history id that they choose
+* also have to delete history number in customer db. 
 */
 function deleteConsultation(){
     
@@ -279,16 +309,23 @@ function deleteConsultation(){
     clearConsulting();
     back_to_list();
 }
+
+
 /**
-* back_to_list enables to show back view
+* back_to_list 
+* enables to show back view
+* using style attribute of the element
 */
 function back_to_list() {
     document.getElementById("history_form").style="display:none"
     document.getElementById("history_list").style="display:block"
 }
+
+
 /**
-* edit_complete enables to eidit completed
-and show alert message that alerts completed
+* edit_complete
+* enables to eidit completed and show alert message that alerts completed
+* get history id from global values and update what have been update values to firebase.
 */
 function edit_complete() {
     document.getElementById("complete-btn").style="display:block"
@@ -316,6 +353,10 @@ function edit_complete() {
     
 }
 
+
+/**
+ * set onClickListener in each button and onclick functions.
+ */
 window.onload = function () {
     document.getElementById('add-consultation-btn').addEventListener('click', addConsultation,false);
     document.getElementById('search-btn').addEventListener('click', searchCustomer,false);
@@ -326,4 +367,8 @@ window.onload = function () {
     
 }
 
+
+/**
+ * init firebase.firestore in db value globally.
+ */
 var db = firebase.firestore();
